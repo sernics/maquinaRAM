@@ -36,7 +36,7 @@
 - JGTZ etiq -> El control del programa salta a la instrucción indicada por la etiqueta si el valor de r0 > 0
 - HALT -> Se detiene el programa
 
-### Componentes:
+## Componentes:
 #### Unidad Arithmetica, Logica y Unidad de Control -> cerebro
 **¿Qué debe tener nuestro cerebro?
 - Acceso a todo
