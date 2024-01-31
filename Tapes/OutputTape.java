@@ -1,7 +1,7 @@
 package Tapes;
 import java.util.ArrayList;
 
-public class OutputTape {
+public class OutputTape implements Tape {
   public OutputTape() {
     head = 0;
     tape = new ArrayList<Integer>();

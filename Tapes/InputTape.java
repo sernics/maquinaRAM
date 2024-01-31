@@ -2,7 +2,7 @@ package Tapes;
 import java.util.ArrayList;
 import java.io.File;
 
-public class InputTape {
+public class InputTape implements Tape {
   public InputTape(String filename) {
     head = 0;
     tape = new ArrayList<Integer>();

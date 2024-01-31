@@ -3,13 +3,13 @@ import Tapes.*;
 
 public class Programa {
   public static void main(String[] args) {
-    InputTape input = new InputTape("inputs/input.txt");
+    Tape input = new InputTape("inputs/input.txt");
     // Imprimir input
     System.out.println("Input:");
     while (input.hasNext()) {
       System.out.println(input.read());
     }
-    OutputTape output = new OutputTape();
+    Tape output = new OutputTape();
     // Escribir output
     output.write(1);
     output.write(2);
