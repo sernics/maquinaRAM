@@ -36,3 +36,22 @@
 - JGTZ etiq -> El control del programa salta a la instrucción indicada por la etiqueta si el valor de r0 > 0
 - HALT -> Se detiene el programa
 
+### Componentes:
+#### Unidad Arithmetica, Logica y Unidad de Control -> cerebro
+**¿Qué debe tener nuestro cerebro?
+- Acceso a todo
+- Lo primero que debe hacer es parsear la entrada, recibira un fichero
+  - En el parseo ya se tendrá en cuenta que se puede tener un operando constante, directo o indirecto
+
+#### Unidades Lógicas
+- Se van a dividir en:
+  - Input Unit -> Tendrá acceso a la input tape -> cinta de entrada
+               -> Recibirá la instrucción y el operando y hará su correspondiente operación
+  - Output Unit -> Tendrá acceso a la output tape -> cinta de salida
+               -> Recibirá la instrucción y el operando y hará su        correspondiente operación
+
+#### Data memory
+- Será dinámica, se irá creando mientras se necesite. Será un hash <int, Registro>
+- Registro será una clase abstracta que en principio será un int
+
+#### Program Memory
