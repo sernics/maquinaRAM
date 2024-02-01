@@ -1,7 +1,8 @@
 import Tapes.*;
 import RegisterBank.*;
+import Operands.*;
 import java.util.ArrayList;
-
+import java.util.Random;
 
 public class Programa {
   public static void main(String[] args) {
@@ -24,10 +25,14 @@ public class Programa {
       System.out.println(tape.get(i));
     }
     DataMemory dataMemory = new DataMemory();
-    Register register = new IntegerRegister();
-    register.setValue(10);
-    dataMemory.putRegister(0, register);
-    register.setValue(11);
+    for (int i = 0; i < 10; i++) {
+      Register register = new IntegerRegister();
+      // Numero random entre el 0 y el 10
+      Random random = new Random();
+      Integer j = random.nextInt(10);
+      register.setValue(j);
+      dataMemory.putRegister(i, register);
+    }
     // Imprimir dataMemory
     System.out.println("DataMemory:");
     for (int i = 0; i < 10; i++) {
@@ -37,5 +42,14 @@ public class Programa {
         System.out.println("null");
       }
     }
+    BasicOperand operand = new InmediateOperand(5);
+    System.out.println("InmediateOperand:");
+    System.out.println(operand.getValue(dataMemory));
+    operand = new DirectOperand(5);
+    System.out.println("DirectOperand:");
+    System.out.println(operand.getValue(dataMemory));
+    operand = new IndirectOperand(5);
+    System.out.println("IndirectOperand:");
+    System.out.println(operand.getValue(dataMemory));
   }
 }
