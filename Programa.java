@@ -1,4 +1,5 @@
 import Tapes.*;
+import RegisterBank.*;
 
 
 public class Programa {
@@ -18,6 +19,21 @@ public class Programa {
     System.out.println("Output:");
     while (output.hasNext()) {
       System.out.println(output.read());
+    }
+    DataMemory dataMemory = new DataMemory();
+    IntegerRegister register = new IntegerRegister();
+    register.setValue(10);
+    dataMemory.putRegister(0, register);
+    register.setValue(100);
+    dataMemory.putRegister(0, register);
+    // Imprimir dataMemory
+    System.out.println("DataMemory:");
+    for (int i = 0; i < 10; i++) {
+      if (dataMemory.containsRegister(i)) {
+        System.out.println(dataMemory.getRegister(i).getValue());
+      } else {
+        System.out.println("null");
+      }
     }
   }
 }

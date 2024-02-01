@@ -11,6 +11,7 @@ public class InputTape implements Tape {
       while (scanner.hasNextInt()) {
         this.tape.add(scanner.nextInt());
       }
+      scanner.close();
     } catch (java.io.FileNotFoundException e) {
       System.out.println("File not found: " + filename);
     }
