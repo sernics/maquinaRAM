@@ -1,5 +1,6 @@
 import Tapes.*;
 import RegisterBank.*;
+import java.util.ArrayList;
 
 
 public class Programa {
@@ -7,8 +8,9 @@ public class Programa {
     Tape input = new InputTape("inputs/input.txt");
     // Imprimir input
     System.out.println("Input:");
-    while (input.hasNext()) {
-      System.out.println(input.read());
+    ArrayList<Integer> tape = input.getTape();
+    for (int i = 0; i < tape.size(); i++) {
+      System.out.println(tape.get(i));
     }
     Tape output = new OutputTape();
     // Escribir output
@@ -17,15 +19,15 @@ public class Programa {
     output.write(3);
     // Imprimir output
     System.out.println("Output:");
-    while (output.hasNext()) {
-      System.out.println(output.read());
+    tape = output.getTape();
+    for (int i = 0; i < tape.size(); i++) {
+      System.out.println(tape.get(i));
     }
     DataMemory dataMemory = new DataMemory();
-    IntegerRegister register = new IntegerRegister();
+    Register register = new IntegerRegister();
     register.setValue(10);
     dataMemory.putRegister(0, register);
-    register.setValue(100);
-    dataMemory.putRegister(0, register);
+    register.setValue(11);
     // Imprimir dataMemory
     System.out.println("DataMemory:");
     for (int i = 0; i < 10; i++) {
