@@ -4,9 +4,7 @@ import ProgramData.Label;
 import Operands.*;
 
 public class AddInstruction implements Instruction {
-  public AddInstruction(Label label, BasicOperand operand) {
-    this.label = label;
-    this.operand = operand;
+  public AddInstruction() {
   }
   public void execute(DataMemory dataMemory) {
     Register register0 = dataMemory.getRegister(0);
