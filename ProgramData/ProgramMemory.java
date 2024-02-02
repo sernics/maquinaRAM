@@ -11,9 +11,9 @@ public class ProgramMemory {
     instructions = new ArrayList<Instruction>();
     programCounter = 0;
   }
-  public ProgramMemory(String filename) {
-    // TODO: Implement this constructor
-  }
+  // public ProgramMemory(String filename) {
+  //   
+  // }
   public int getLabelPosition(Label label) {
     return labels.get(label);
   }
@@ -29,8 +29,8 @@ public class ProgramMemory {
       instruction.execute(dataMemory);
     programCounter++;
   }
-  public void addLabel(Label label) {
-    labels.put(label, programCounter);
+  public void addLabel(Label label, int programPosition) {
+    labels.put(label, programPosition);
   }
   public void addInstruction(Instruction instruction) {
     instructions.add(instruction);

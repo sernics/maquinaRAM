@@ -6,8 +6,8 @@ import RegisterBank.DataMemory;
 import RegisterBank.IntegerRegister;
 import RegisterBank.Register;
 
-public class StoreIntstruction implements Instruction {
-  public StoreIntstruction(Operator operator, BasicOperand operand) {
+public class StoreInstruction implements Instruction {
+  public StoreInstruction(Operator operator, BasicOperand operand) {
     this.operator = operator;
     this.operand = operand;
   }
