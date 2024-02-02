@@ -12,8 +12,8 @@ public class ReadInstruction implements Instruction {
     this.operator = operator;
     this.operand = operand;
   }
-  public void execute(Tape inputTape, DataMemory dataMemory) {
-    Register register = new IntegerRegister(inputTape.read());
+  public void execute(Tape tape, DataMemory dataMemory) {
+    Register register = new IntegerRegister(tape.read());
     dataMemory.putRegister(operand.getValue(dataMemory), register);
   }
   public Operator getOperator() {
