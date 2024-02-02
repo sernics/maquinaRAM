@@ -6,32 +6,29 @@ import Instructions.*;
 
 public class ProgramMemory {
   public ProgramMemory() {
-    operators = new HashMap<Label, Integer>();
+    labels = new HashMap<Label, Integer>();
     instructions = new ArrayList<Instruction>();
     programCounter = 0;
   }
   public ProgramMemory(String filename) {
     // TODO: Implement this constructor
   }
-  public int getLabelPosition(Operator operator) {
-    return operators.get(operator);
+  public int getLabelPosition(Label label) {
+    return labels.get(label);
   }
   public void operate(DataMemory dataMemory) {
-    if (!instructions.get(programCounter).isJump()) {
-      programCounter = instructions.get(programCounter).getLabelIndex();
-      programCounter++;
-    }
-    else
-      // Make a jump
-      programCounter++;
+    // TODO
   }
   public void addLabel(Label label) {
-    operators.put(label, programCounter);
+    labels.put(label, programCounter);
   }
   public void addInstruction(Instruction instruction) {
     instructions.add(instruction);
   }
-  private HashMap<Label, Integer> operators;
+  public void setProgramCounter(int programCounter) {
+    this.programCounter = programCounter;
+  }
+  private HashMap<Label, Integer> labels;
   private ArrayList<Instruction> instructions;
   private int programCounter;
 }

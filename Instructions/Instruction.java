@@ -12,9 +12,8 @@ public interface Instruction {
     throw new UnsupportedOperationException("executeUnsopported");
   }
   public Operator getOperator();
-  public BasicOperand getOperand();
-  public default int getLabelIndex() {
-    throw new UnsupportedOperationException("getLabelIndexUnsopported");
+  public default BasicOperand getOperand() {
+    throw new UnsupportedOperationException("getOperandUnsopported");
   }
   public default Boolean isJump() {
     return false;
