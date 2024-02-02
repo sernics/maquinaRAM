@@ -20,10 +20,10 @@ public class InputTape implements Tape {
     return tape;
   }
   public int read() {
-    int value = tape.get(head);
+    Integer value = tape.get(head);
     head++;
     return value;
   }
-  private int head;
+  private Integer head;
   private ArrayList<Integer> tape;
 }
