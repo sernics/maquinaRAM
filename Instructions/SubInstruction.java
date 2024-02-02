@@ -1,11 +1,11 @@
 package Instructions;
 import RegisterBank.*;
-import ProgramData.Label;
+import ProgramData.Operator;
 import Operands.*;
 
 public class SubInstruction implements Instruction {
-  public SubInstruction(Label label, BasicOperand operand) {
-    this.label = label;
+  public SubInstruction(Operator operator, BasicOperand operand) {
+    this.operator = operator;
     this.operand = operand;
   }
   public void execute(DataMemory dataMemory) {
@@ -13,13 +13,13 @@ public class SubInstruction implements Instruction {
     register0.setValue(register0.getValue() - operand.getValue(dataMemory));
     dataMemory.putRegister(0, register0);
   }
-  public Label getLabel() {
-    return label;
+  public Operator getOperator() {
+    return operator;
   }
   public BasicOperand getOperand() {
     return operand;
   }
-  private Label label;
+  private Operator operator;
   private BasicOperand operand;
 }
 

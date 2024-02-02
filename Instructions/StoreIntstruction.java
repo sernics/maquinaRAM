@@ -1,14 +1,14 @@
 package Instructions;
 
 import Operands.BasicOperand;
-import ProgramData.Label;
+import ProgramData.Operator;
 import RegisterBank.DataMemory;
 import RegisterBank.IntegerRegister;
 import RegisterBank.Register;
 
 public class StoreIntstruction implements Instruction {
-  public StoreIntstruction(Label label, BasicOperand operand) {
-    this.label = label;
+  public StoreIntstruction(Operator operator, BasicOperand operand) {
+    this.operator = operator;
     this.operand = operand;
   }
   public void execute(DataMemory dataMemory) {
@@ -16,12 +16,12 @@ public class StoreIntstruction implements Instruction {
     register.setValue(operand.getValue(dataMemory));
     dataMemory.putRegister(dataMemory.getRegister(0).getValue(), register);
   }
-  public Label getLabel() {
-    return label;
+  public Operator getOperator() {
+    return operator;
   }
   public BasicOperand getOperand() {
     return operand;
   }
-  private Label label;
+  private Operator operator;
   private BasicOperand operand;
 }
