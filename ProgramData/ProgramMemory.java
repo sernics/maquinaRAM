@@ -6,7 +6,7 @@ import Instructions.*;
 
 public class ProgramMemory {
   public ProgramMemory() {
-    operators = new HashMap<Operator, Integer>();
+    operators = new HashMap<Label, Integer>();
     instructions = new ArrayList<Instruction>();
     programCounter = 0;
   }
@@ -25,13 +25,13 @@ public class ProgramMemory {
       // Make a jump
       programCounter++;
   }
-  public void addLabel(Operator operator) {
-    operators.put(operator, programCounter);
+  public void addLabel(Label label) {
+    operators.put(label, programCounter);
   }
   public void addInstruction(Instruction instruction) {
     instructions.add(instruction);
   }
-  private HashMap<Operator, Integer> operators;
+  private HashMap<Label, Integer> operators;
   private ArrayList<Instruction> instructions;
   private int programCounter;
 }

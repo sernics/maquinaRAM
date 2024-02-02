@@ -1,5 +1,5 @@
 package Instructions;
 
-public class JumpInstruction {
+public class JumpInstruction implements Instruction {
   
 }
