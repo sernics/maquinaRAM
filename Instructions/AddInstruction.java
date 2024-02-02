@@ -4,7 +4,9 @@ import ProgramData.Operator;
 import Operands.*;
 
 public class AddInstruction implements Instruction {
-  public AddInstruction() {
+  public AddInstruction(Operator operator, BasicOperand operand) {
+    this.operator = operator;
+    this.operand = operand;
   }
   public void execute(DataMemory dataMemory) {
     Register register0 = dataMemory.getRegister(0);

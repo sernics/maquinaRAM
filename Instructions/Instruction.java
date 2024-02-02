@@ -4,7 +4,9 @@ import ProgramData.Operator;
 import Operands.*;
 
 public interface Instruction {
-  public void execute(DataMemory dataMemory);
+  public default void execute(DataMemory dataMemory) {
+    throw new UnsupportedOperationException("executeUnsopported");
+  }
   public Operator getOperator();
   public BasicOperand getOperand();
   public default int getLabelIndex() {
