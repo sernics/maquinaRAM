@@ -1,6 +1,7 @@
 package Instructions;
 
 import Operands.BasicOperand;
+import Operands.InmediateOperand;
 import ProgramData.Operator;
 import RegisterBank.DataMemory;
 import RegisterBank.IntegerRegister;
@@ -13,8 +14,7 @@ public class ReadInstruction implements Instruction {
     this.operand = operand;
   }
   public void execute(Tape tape, DataMemory dataMemory) {
-    Register register = new IntegerRegister(tape.read());
-    dataMemory.putRegister(operand.getValue(dataMemory), register);
+    dataMemory.putRegister(0, new IntegerRegister(tape.read()));
   }
   public Operator getOperator() {
     return operator;
