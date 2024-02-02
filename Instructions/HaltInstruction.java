@@ -11,5 +11,8 @@ public class HaltInstruction implements Instruction {
   public void execute() {
     System.exit(0);
   }
+  public Boolean isHalt() {
+    return true;
+  }
   Operator operator;
 }

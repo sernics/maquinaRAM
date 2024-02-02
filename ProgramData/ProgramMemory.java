@@ -2,6 +2,7 @@ package ProgramData;
 import java.util.HashMap;
 import java.util.ArrayList;
 import RegisterBank.DataMemory;
+import Tapes.Tape;
 import Instructions.*;
 
 public class ProgramMemory {
@@ -16,8 +17,15 @@ public class ProgramMemory {
   public int getLabelPosition(Label label) {
     return labels.get(label);
   }
-  public void operate(DataMemory dataMemory) {
-    // TODO
+  public void operate(DataMemory dataMemory, Tape tape) {
+    Instruction instruction = instructions.get(programCounter);
+    if (instruction.isHalt())
+      instruction.execute();
+    else if (instruction.isJump())
+      instruction.execute(tape, dataMemory);
+    else
+      instruction.execute(dataMemory);
+    programCounter++;
   }
   public void addLabel(Label label) {
     labels.put(label, programCounter);

@@ -17,6 +17,9 @@ public class JumpGratherThanZeroInstruction implements Instruction {
   public Operator getOperator() {
     return operator;
   }
+  public Boolean isJump() {
+    return true;
+  }
   Operator operator;
   Label label;
 }
