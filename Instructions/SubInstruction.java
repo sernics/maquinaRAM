@@ -3,14 +3,14 @@ import RegisterBank.*;
 import ProgramData.Label;
 import Operands.*;
 
-public class AddInstruction implements Instruction {
-  public AddInstruction(Label label, BasicOperand operand) {
+public class SubInstruction implements Instruction {
+  public SubInstruction(Label label, BasicOperand operand) {
     this.label = label;
     this.operand = operand;
   }
   public void execute(DataMemory dataMemory) {
     Register register0 = dataMemory.getRegister(0);
-    register0.setValue(register0.getValue() + operand.getValue(dataMemory));
+    register0.setValue(register0.getValue() - operand.getValue(dataMemory));
     dataMemory.putRegister(0, register0);
   }
   public Label getLabel() {
@@ -22,3 +22,4 @@ public class AddInstruction implements Instruction {
   private Label label;
   private BasicOperand operand;
 }
+
