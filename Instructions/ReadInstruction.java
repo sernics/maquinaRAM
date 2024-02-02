@@ -22,6 +22,9 @@ public class ReadInstruction implements Instruction {
   public BasicOperand getOperand() {
     return operand;
   }
+  public Boolean useTape() {
+    return true;
+  }
   private Operator operator;
   private BasicOperand operand;
 }

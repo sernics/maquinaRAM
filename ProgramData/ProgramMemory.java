@@ -21,8 +21,10 @@ public class ProgramMemory {
     Instruction instruction = instructions.get(programCounter);
     if (instruction.isHalt())
       instruction.execute();
-    else if (instruction.isJump())
+    else if (instruction.useTape())
       instruction.execute(tape, dataMemory);
+    else if (instruction.isJump())
+      instruction.execute(this, dataMemory);
     else
       instruction.execute(dataMemory);
     programCounter++;
