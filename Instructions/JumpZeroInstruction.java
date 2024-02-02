@@ -8,7 +8,7 @@ public class JumpZeroInstruction implements Instruction {
     this.operator = operator;
   }
   public void execute(ProgramMemory programMemory, DataMemory dataMemory) {
-    if (dataMemory.containsRegister(0))
+    if (dataMemory.containsRegister(0) && dataMemory.getRegister(0).getValue() == 0)
       programMemory.setProgramCounter(programMemory.getLabelPosition(label));
   }
   public Label getLabel() {
@@ -20,4 +20,3 @@ public class JumpZeroInstruction implements Instruction {
   Operator operator;
   Label label;
 }
-

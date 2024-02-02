@@ -2,8 +2,8 @@ package Instructions;
 import ProgramData.*;
 import RegisterBank.DataMemory;
 
-public class JumpZeroInstruction implements Instruction {
-  public JumpZeroInstruction(Label label, Operator operator) {
+public class JumpGratherThanZeroInstruction implements Instruction {
+  public JumpGratherThanZeroInstruction(Label label, Operator operator) {
     this.label = label;
     this.operator = operator;
   }
