@@ -22,8 +22,17 @@ public class Programa {
     instruction = new ReadInstruction(tape, registerBank, operand);
     instruction.operate();
     // Imprimir r0
-    System.out.println(registerBank.getRegister(0).getValue());
+    System.out.println("r0: " + registerBank.getRegister(0).getValue());
     // Imprimir r1
-    System.out.println(registerBank.getRegister(1).getValue());
+    System.out.println("r1: " + registerBank.getRegister(1).getValue());
+    Tape outputTape = new OutputTape();
+    instruction = new WriteInstruction(outputTape, registerBank, new DirectOperand(0));
+    instruction.operate();
+    ArrayList<Integer> values = outputTape.getTape();
+    System.out.print("Output tape: ");
+    for (int i = 0; i < values.size(); i++) {
+      System.out.println(values.get(i));
+    }
+    System.out.println("End of program");
   }
 }

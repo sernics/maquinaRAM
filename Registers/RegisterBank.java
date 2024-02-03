@@ -9,6 +9,9 @@ public class RegisterBank {
   public Register getRegister(int address) {
     return memory.get(address);
   }
+  public int getRegisterValue(int address) {
+    return memory.get(address).getValue();
+  }
   public void putRegister(int address, Register register) {
     memory.put(address, register);
   }
