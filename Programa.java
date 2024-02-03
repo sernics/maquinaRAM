@@ -33,5 +33,10 @@ public class Programa {
     instruction.operate();
     // Imprimir r0
     System.out.println(registerBank.getRegisterValue(0));
+    operand = new InmediateOperand(2);
+    instruction = new DivInstruction(registerBank, operand);
+    instruction.operate();
+    // Imprimir r0
+    System.out.println(registerBank.getRegisterValue(0));
   }
 }
