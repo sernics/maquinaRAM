@@ -31,6 +31,11 @@ public class Programa {
     // Imprimir r0
     System.out.println("r0: " + registerBank.getRegister(0).getValue());
     ArrayList<Integer> values = outputTape.getTape();
+    operand = new DirectOperand(3);
+    instruction = new StoreInstruction(registerBank, operand);
+    instruction.operate();
+    // Imprimir r3
+    System.out.println("r3: " + registerBank.getRegister(3).getValue());
     System.out.print("Output tape: ");
     for (int i = 0; i < values.size(); i++) {
       System.out.println(values.get(i));
