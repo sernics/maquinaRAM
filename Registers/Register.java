@@ -1,4 +1,4 @@
-package RegisterBank;
+package Registers;
 
 public interface Register {
   public default int getValue() {

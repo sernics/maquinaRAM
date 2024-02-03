@@ -1,8 +1,8 @@
-package RegisterBank;
+package Registers;
 import java.util.HashMap;
 
-public class DataMemory {
-  public DataMemory() {
+public class RegisterBank {
+  public RegisterBank() {
     memory = new HashMap<Integer, Register>();
     memory.put(0, new IntegerRegister());
   }

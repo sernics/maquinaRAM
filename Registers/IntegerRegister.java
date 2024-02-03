@@ -1,4 +1,4 @@
-package RegisterBank;
+package Registers;
 
 public class IntegerRegister implements Register {
   public IntegerRegister() {

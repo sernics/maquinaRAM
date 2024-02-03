@@ -1,6 +1,6 @@
 package Operands;
-import RegisterBank.*;
+import Registers.*;
 
 public interface BasicOperand {
-  public int getValue(DataMemory dataMemory);
+  public int getValue(RegisterBank dataMemory);
 }

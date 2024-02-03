@@ -1,6 +1,7 @@
 import Tapes.*;
-import RegisterBank.*;
 import Operands.*;
+import Registers.*;
+
 import java.util.ArrayList;
 
 public class Programa {
