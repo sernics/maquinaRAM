@@ -3,10 +3,7 @@ import Operands.*;
 import Registers.*;
 import Instructions.*;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-
-import Instructions.ReadInstruction;
 
 public class Programa {
   public static void main(String[] args) {
@@ -28,6 +25,11 @@ public class Programa {
     Tape outputTape = new OutputTape();
     instruction = new WriteInstruction(outputTape, registerBank, new DirectOperand(0));
     instruction.operate();
+    operand = new DirectOperand(1);
+    instruction = new LoadInstruction(registerBank, operand);
+    instruction.operate();
+    // Imprimir r0
+    System.out.println("r0: " + registerBank.getRegister(0).getValue());
     ArrayList<Integer> values = outputTape.getTape();
     System.out.print("Output tape: ");
     for (int i = 0; i < values.size(); i++) {

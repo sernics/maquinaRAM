@@ -10,7 +10,7 @@ public class WriteInstruction implements Instruction {
     this.registerBank = registerBank;
     this.operand = operand;
   }
-  public void operate () {
+  public void operate() {
     this.tape.write(this.registerBank.getRegisterValue(this.operand.getAddress(registerBank)));
   }
   private Tape tape;
