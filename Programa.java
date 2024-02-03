@@ -28,5 +28,10 @@ public class Programa {
     instruction.operate();
     // Imprimir r0
     System.out.println(registerBank.getRegisterValue(0));
+    operand = new DirectOperand(1);
+    instruction = new MulInstruction(registerBank, operand);
+    instruction.operate();
+    // Imprimir r0
+    System.out.println(registerBank.getRegisterValue(0));
   }
 }
