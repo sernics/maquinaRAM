@@ -3,9 +3,12 @@ import Instructions.*;
 import java.util.ArrayList;
 
 public class ProgramMemory {
-  public ProgramMemory(String filename) {
+  public ProgramMemory() {
     programMemory = new ArrayList<Instruction>();
     head = 0;
+  }
+  public void add(Instruction instruction) {
+    programMemory.add(instruction);
   }
   public ArrayList<Instruction> getProgramMemory() {
     return programMemory;
@@ -14,6 +17,9 @@ public class ProgramMemory {
     Instruction value = programMemory.get(head);
     head++;
     return value;
+  }
+  public Integer getHead() {
+    return head;
   }
   public void setHead(Integer head) {
     this.head = head;
