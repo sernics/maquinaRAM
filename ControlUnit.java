@@ -1,5 +1,6 @@
 import Tapes.*;
 import Operands.*;
+import ProgramMemory.ProgramMemory;
 import Registers.*;
 import Instructions.*;
 
