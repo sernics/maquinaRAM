@@ -54,6 +54,12 @@ public class ControlUnit {
     Instruction instruction = programMemory.read();
     instruction.operate();
   }
+  private Boolean isInmediate(String value) {
+    return value.charAt(0) == '=';
+  }
+  private Boolean isIndirect(String value) {
+    return value.charAt(0) == '*';
+  }
   private Tape inputTape;
   private Tape outputTape;
   private RegisterBank registerBank;
