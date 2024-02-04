@@ -17,7 +17,6 @@ public class ControlUnit {
       this.programMemory = new ProgramMemory();
       Scanner scanner = new Scanner(new File(filename));
       String pattern = "(?m)(?<=^|\\s)#.*$";
-      // Otro patron que sea muchos espacios a uno solo
       String pattern2 = "\\s+";
       Pattern p = Pattern.compile(pattern);
       Pattern p2 = Pattern.compile(pattern2);
@@ -29,16 +28,19 @@ public class ControlUnit {
         m = p2.matcher(lineWithoutComments);
         lineWithoutComments = m.replaceAll(" ");
         if (!lineWithoutComments.equals("")) {
-          String[] split = lineWithoutComments.split(" ");
-          for (String s : split) {
-            if (!s.equals("")) 
-              values.add(s);
+          // split the line by spaces
+          String[] tokens = lineWithoutComments.split(" ");
+          // Imprimir tokens
+          for (String token : tokens) {
+            if (!token.equals("")) {
+              values.add(token);
+            }
           }
         }
-        // Imprimir values
-        for (String s : values) {
-          System.out.println(s);
-        }
+      }
+      // imprimir values
+      for (String value : values) {
+        System.out.println(value);
       }
       scanner.close();
     } catch (java.io.FileNotFoundException e) {
