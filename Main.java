@@ -16,7 +16,7 @@ public class Main {
     programMemory.add(instruction);
     programMemory.add(instruction);
     operand = new InmediateOperand(4);
-    instruction = new JumpInstruction(programMemory, operand, registerBank);
+    instruction = new JumpZeroInstruction(programMemory, operand, registerBank);
     programMemory.add(instruction);
     operand = new DirectOperand(0);
     instruction = new AddInstruction(registerBank, operand);
@@ -25,6 +25,7 @@ public class Main {
     programMemory.add(instruction);
     while (true) {
       System.out.println(programMemory.getHead());
+      System.out.println(registerBank.getRegister(0).getValue());
       instruction = programMemory.read();
       instruction.operate();
     }
