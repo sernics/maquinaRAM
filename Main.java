@@ -16,7 +16,7 @@ public class Main {
     programMemory.add(instruction);
     programMemory.add(instruction);
     operand = new InmediateOperand(4);
-    instruction = new JumpZeroInstruction(programMemory, operand, registerBank);
+    instruction = new JumpGratherThanZeroInstruction(programMemory, operand, registerBank);
     programMemory.add(instruction);
     operand = new DirectOperand(0);
     instruction = new AddInstruction(registerBank, operand);
