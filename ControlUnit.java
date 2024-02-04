@@ -67,14 +67,110 @@ public class ControlUnit {
         String label = token.substring(0, token.length() - 1);
         labels.put(label, programIndex);
       } else {
+        BasicOperand operand;
         switch (token) {
           case "load":
             System.out.println("load instruction");
+            i++;
+            if (isOperand(tokens.get(i))) {
+              operand = parseOperand(tokens.get(i));
+            } else {
+              throw new RuntimeException("Invalid operand");
+            }
             break;
           case "store":
             System.out.println("store instruction");
+            i++;
+            if (isOperand(tokens.get(i))) {
+              operand = parseOperand(tokens.get(i));
+            } else {
+              throw new RuntimeException("Invalid operand");
+            }
             break;
-            
+          case "add":
+            System.out.println("add instruction");
+            i++;
+            if (isOperand(tokens.get(i))) {
+              operand = parseOperand(tokens.get(i));
+            } else {
+              throw new RuntimeException("Invalid operand");
+            }
+            break;
+          case "sub":
+            System.out.println("sub instruction");
+            i++;
+            if (isOperand(tokens.get(i))) {
+              operand = parseOperand(tokens.get(i));
+            } else {
+              throw new RuntimeException("Invalid operand");
+            }
+            break;
+          case "mul":
+            System.out.println("mul instruction");
+            i++;
+            if (isOperand(tokens.get(i))) {
+              operand = parseOperand(tokens.get(i));
+            } else {
+              throw new RuntimeException("Invalid operand");
+            }
+            break;
+          case "div":
+            System.out.println("div instruction");
+            i++;
+            if (isOperand(tokens.get(i))) {
+              operand = parseOperand(tokens.get(i));
+            } else {
+              throw new RuntimeException("Invalid operand");
+            }
+            break;
+          case "read":
+            System.out.println("read instruction");
+            i++;
+            if (isOperand(tokens.get(i))) {
+              operand = parseOperand(tokens.get(i));
+            } else {
+              throw new RuntimeException("Invalid operand");
+            }
+            break;
+          case "write":
+            System.out.println("write instruction");
+            i++;
+            if (isOperand(tokens.get(i))) {
+              operand = parseOperand(tokens.get(i));
+            } else {
+              throw new RuntimeException("Invalid operand");
+            }
+            break;
+          case "jump":
+            System.out.println("jump instruction");
+            i++;
+            if (isOperand(tokens.get(i))) {
+              operand = parseOperand(tokens.get(i));
+            } else {
+              throw new RuntimeException("Invalid operand");
+            }
+            break;
+          case "jzero":
+            System.out.println("jzero instruction");
+            i++;
+            if (isOperand(tokens.get(i))) {
+              operand = parseOperand(tokens.get(i));
+            } else {
+              throw new RuntimeException("Invalid operand");
+            }
+            break;
+          case "jgtz":
+            System.out.println("jgtz instruction");
+            i++;
+            if (isOperand(tokens.get(i))) {
+              operand = parseOperand(tokens.get(i));
+            } else {
+              throw new RuntimeException("Invalid operand");
+            }
+            break;
+          case "halt":
+            System.out.println("halt instruction");
+            break;
           default:
             break;
         }
@@ -92,6 +188,20 @@ public class ControlUnit {
 
   private Boolean isLabel(String value) {
     return value.charAt(value.length() - 1) == ':';
+  }
+
+  private Boolean isOperand(String value) {
+    return value.charAt(0) == '=' || value.charAt(0) == '*' || Character.isDigit(value.charAt(0));
+  }
+
+  private BasicOperand parseOperand(String value) {
+    if (isInmediate(value)) {
+      return new InmediateOperand(Integer.parseInt(value.substring(1)));
+    } else if (isIndirect(value)) {
+      return new IndirectOperand(Integer.parseInt(value.substring(1)));
+    } else {
+      return new DirectOperand(Integer.parseInt(value));
+    }
   }
 
   private Tape inputTape;
