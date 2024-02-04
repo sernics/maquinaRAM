@@ -59,7 +59,7 @@ public class ControlUnit {
 
   private void Parse(ArrayList<String> tokens) {
     int programIndex = -1;
-    HashMap<String, Integer> labels = new HashMap<String, Integer>();
+    HashMap<String, Integer> labels = parseLabels(tokens);
     for (int i = 0; i < tokens.size(); i++) {
       programIndex++;
       String token = tokens.get(i);
@@ -158,7 +158,7 @@ public class ControlUnit {
               operand = new InmediateOperand(labels.get(tokens.get(i)));
               instruction = new JumpInstruction(programMemory, operand, registerBank);
             } else {
-              throw new RuntimeException("Invalid operand");
+              throw new RuntimeException("Invalid label");
             }
             break;
           case "jzero":
@@ -168,7 +168,7 @@ public class ControlUnit {
               operand = new InmediateOperand(labels.get(tokens.get(i)));
               instruction = new JumpZeroInstruction(programMemory, operand, registerBank);
             } else {
-              throw new RuntimeException("Invalid operand");
+              throw new RuntimeException("Invalid label");
             }
             break;
           case "jgtz":
@@ -178,7 +178,7 @@ public class ControlUnit {
               operand = new InmediateOperand(labels.get(tokens.get(i)));
               instruction = new JumpGreaterThanZeroInstruction(programMemory, operand, registerBank);
             } else {
-              throw new RuntimeException("Invalid operand");
+              throw new RuntimeException("Invalid label");
             }
             break;
           case "halt":
@@ -189,6 +189,12 @@ public class ControlUnit {
             break;
         }
       }
+    }
+
+    // Imprimir labels
+    System.out.println("Labels:");
+    for (String label : labels.keySet()) {
+      System.out.println(label + " " + labels.get(label));
     }
   }
 
@@ -216,6 +222,20 @@ public class ControlUnit {
     } else {
       return new DirectOperand(Integer.parseInt(value));
     }
+  }
+
+  private HashMap<String, Integer> parseLabels(ArrayList<String> tokens) {
+    HashMap<String, Integer> labels = new HashMap<String, Integer>();
+    Integer programIndex = 0;
+    for (String token : tokens) {
+      if (isLabel(token)) {
+        String label = token.substring(0, token.length() - 1);
+        labels.put(label, programIndex);
+      } else {
+        programIndex++;
+      }
+    }
+    return labels;
   }
 
   private Tape inputTape;
