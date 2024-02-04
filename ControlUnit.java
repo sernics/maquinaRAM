@@ -188,7 +188,7 @@ public class ControlUnit {
       }
     }
 
-    // Imprimir labels
+    // Print labels
     System.out.println("Labels:");
     for (String label : labels.keySet()) {
       System.out.println(label + " " + labels.get(label));
