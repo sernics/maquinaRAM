@@ -68,8 +68,9 @@ public class ControlUnit {
         String label = token.substring(0, token.length() - 1);
         labels.put(label, programIndex);
       } else {
-        BasicOperand operand;
         Instruction instruction;
+        instruction = null;
+        BasicOperand operand;
         switch (token) {
           case "load":
             System.out.println("load instruction");
@@ -188,6 +189,7 @@ public class ControlUnit {
           default:
             break;
         }
+        programMemory.add(instruction);
       }
     }
 
@@ -196,6 +198,7 @@ public class ControlUnit {
     for (String label : labels.keySet()) {
       System.out.println(label + " " + labels.get(label));
     }
+    System.out.println("Program memory: " + programMemory.getProgramMemory().size());
   }
 
   private Boolean isInmediate(String value) {
