@@ -58,137 +58,132 @@ public class ControlUnit {
   }
 
   private void Parse(ArrayList<String> tokens) {
-    int programIndex = -1;
     HashMap<String, Integer> labels = parseLabels(tokens);
     for (int i = 0; i < tokens.size(); i++) {
-      programIndex++;
       String token = tokens.get(i);
       System.out.println( "/" + token + "/ " + token.length());
-      if (isLabel(token)) {
-        String label = token.substring(0, token.length() - 1);
-        labels.put(label, programIndex);
-      } else {
-        Instruction instruction;
-        instruction = null;
-        BasicOperand operand;
-        switch (token) {
-          case "load":
-            System.out.println("load instruction");
-            i++;
-            if (isOperand(tokens.get(i))) {
-              operand = parseOperand(tokens.get(i));
-              instruction = new LoadInstruction(registerBank, operand);
-            } else {
-              throw new RuntimeException("Invalid operand");
-            }
-            break;
-          case "store":
-            System.out.println("store instruction");
-            i++;
-            if (isOperand(tokens.get(i))) {
-              operand = parseOperand(tokens.get(i));
-              instruction = new StoreInstruction(registerBank, operand);
-            } else {
-              throw new RuntimeException("Invalid operand");
-            }
-            break;
-          case "add":
-            System.out.println("add instruction");
-            i++;
-            if (isOperand(tokens.get(i))) {
-              operand = parseOperand(tokens.get(i));
-              instruction = new AddInstruction(registerBank, operand);
-            } else {
-              throw new RuntimeException("Invalid operand");
-            }
-            break;
-          case "sub":
-            System.out.println("sub instruction");
-            i++;
-            if (isOperand(tokens.get(i))) {
-              operand = parseOperand(tokens.get(i));
-              instruction = new SubInstruction(registerBank, operand);
-            } else {
-              throw new RuntimeException("Invalid operand");
-            }
-            break;
-          case "mul":
-            System.out.println("mul instruction");
-            i++;
-            if (isOperand(tokens.get(i))) {
-              operand = parseOperand(tokens.get(i));
-              instruction = new MulInstruction(registerBank, operand);
-            } else {
-              throw new RuntimeException("Invalid operand");
-            }
-            break;
-          case "div":
-            System.out.println("div instruction");
-            i++;
-            if (isOperand(tokens.get(i))) {
-              operand = parseOperand(tokens.get(i));
-              instruction = new DivInstruction(registerBank, operand);
-            } else {
-              throw new RuntimeException("Invalid operand");
-            }
-            break;
-          case "read":
-            System.out.println("read instruction");
-            i++;
-            if (isOperand(tokens.get(i))) {
-              operand = parseOperand(tokens.get(i));
-              instruction = new ReadInstruction(inputTape, registerBank, operand);
-            } else {
-              throw new RuntimeException("Invalid operand");
-            }
-            break;
-          case "write":
-            System.out.println("write instruction");
-            i++;
-            if (isOperand(tokens.get(i))) {
-              operand = parseOperand(tokens.get(i));
-              instruction = new WriteInstruction(outputTape, registerBank, operand);
-            } else {
-              throw new RuntimeException("Invalid operand");
-            }
-            break;
-          case "jump":
-            System.out.println("jump instruction");
-            i++;
-            if (labels.containsKey(tokens.get(i))) {
-              operand = new InmediateOperand(labels.get(tokens.get(i)));
-              instruction = new JumpInstruction(programMemory, operand, registerBank);
-            } else {
-              throw new RuntimeException("Invalid label");
-            }
-            break;
-          case "jzero":
-            System.out.println("jzero instruction");
-            i++;
-            if (labels.containsKey(tokens.get(i))) {
-              operand = new InmediateOperand(labels.get(tokens.get(i)));
-              instruction = new JumpZeroInstruction(programMemory, operand, registerBank);
-            } else {
-              throw new RuntimeException("Invalid label");
-            }
-            break;
-          case "jgtz":
-            System.out.println("jgtz instruction");
-            i++;
-            if (labels.containsKey(tokens.get(i))) {
-              operand = new InmediateOperand(labels.get(tokens.get(i)));
-              instruction = new JumpGreaterThanZeroInstruction(programMemory, operand, registerBank);
-            } else {
-              throw new RuntimeException("Invalid label");
-            }
-            break;
-          case "halt":
-            System.out.println("halt instruction");
-            instruction = new HaltInstruction();
-            break;
-          default:
-            break;
-        }
+      Instruction instruction;
+      instruction = null;
+      BasicOperand operand;
+      switch (token) {
+        case "load":
+          System.out.println("load instruction");
+          i++;
+          if (isOperand(tokens.get(i))) {
+            operand = parseOperand(tokens.get(i));
+            instruction = new LoadInstruction(registerBank, operand);
+          } else {
+            throw new RuntimeException("Invalid operand");
+          }
+          break;
+        case "store":
+          System.out.println("store instruction");
+          i++;
+          if (isOperand(tokens.get(i))) {
+            operand = parseOperand(tokens.get(i));
+            instruction = new StoreInstruction(registerBank, operand);
+          } else {
+            throw new RuntimeException("Invalid operand");
+          }
+          break;
+        case "add":
+          System.out.println("add instruction");
+          i++;
+          if (isOperand(tokens.get(i))) {
+            operand = parseOperand(tokens.get(i));
+            instruction = new AddInstruction(registerBank, operand);
+          } else {
+            throw new RuntimeException("Invalid operand");
+          }
+          break;
+        case "sub":
+          System.out.println("sub instruction");
+          i++;
+          if (isOperand(tokens.get(i))) {
+            operand = parseOperand(tokens.get(i));
+            instruction = new SubInstruction(registerBank, operand);
+          } else {
+            throw new RuntimeException("Invalid operand");
+          }
+          break;
+        case "mult":
+          System.out.println("mul instruction");
+          i++;
+          if (isOperand(tokens.get(i))) {
+            operand = parseOperand(tokens.get(i));
+            instruction = new MulInstruction(registerBank, operand);
+          } else {
+            throw new RuntimeException("Invalid operand");
+          }
+          break;
+        case "div":
+          System.out.println("div instruction");
+          i++;
+          if (isOperand(tokens.get(i))) {
+            operand = parseOperand(tokens.get(i));
+            instruction = new DivInstruction(registerBank, operand);
+          } else {
+            throw new RuntimeException("Invalid operand");
+          }
+          break;
+        case "read":
+          System.out.println("read instruction");
+          i++;
+          if (isOperand(tokens.get(i))) {
+            operand = parseOperand(tokens.get(i));
+            instruction = new ReadInstruction(inputTape, registerBank, operand);
+          } else {
+            throw new RuntimeException("Invalid operand");
+          }
+          break;
+        case "write":
+          System.out.println("write instruction");
+          i++;
+          if (isOperand(tokens.get(i))) {
+            operand = parseOperand(tokens.get(i));
+            instruction = new WriteInstruction(outputTape, registerBank, operand);
+          } else {
+            throw new RuntimeException("Invalid operand");
+          }
+          break;
+        case "jump":
+          System.out.println("jump instruction");
+          i++;
+          if (labels.containsKey(tokens.get(i))) {
+            operand = new InmediateOperand(labels.get(tokens.get(i)));
+            instruction = new JumpInstruction(programMemory, operand, registerBank);
+          } else {
+            throw new RuntimeException("Invalid label");
+          }
+          break;
+        case "jzero":
+          System.out.println("jzero instruction");
+          i++;
+          if (labels.containsKey(tokens.get(i))) {
+            operand = new InmediateOperand(labels.get(tokens.get(i)));
+            instruction = new JumpZeroInstruction(programMemory, operand, registerBank);
+          } else {
+            throw new RuntimeException("Invalid label");
+          }
+          break;
+        case "jgtz":
+          System.out.println("jgtz instruction");
+          i++;
+          if (labels.containsKey(tokens.get(i))) {
+            operand = new InmediateOperand(labels.get(tokens.get(i)));
+            instruction = new JumpGreaterThanZeroInstruction(programMemory, operand, registerBank);
+          } else {
+            throw new RuntimeException("Invalid label");
+          }
+          break;
+        case "halt":
+          System.out.println("halt instruction");
+          instruction = new HaltInstruction();
+          break;
+        default:
+          break;
+      }
+      if (instruction != null) {
         programMemory.add(instruction);
       }
     }
@@ -230,12 +225,14 @@ public class ControlUnit {
   private HashMap<String, Integer> parseLabels(ArrayList<String> tokens) {
     HashMap<String, Integer> labels = new HashMap<String, Integer>();
     Integer programIndex = 0;
-    for (String token : tokens) {
+    for (int i = 0; i < tokens.size(); i++) {
+      String token = tokens.get(i);
       if (isLabel(token)) {
-        String label = token.substring(0, token.length() - 1);
-        labels.put(label, programIndex);
+        labels.put(token.substring(0, token.length() - 1), programIndex);
       } else {
-        programIndex++;
+        if (isOperand(token) || token.equals("halt") || token.equals("jump") || token.equals("jzero") || token.equals("jgtz")) {
+          programIndex++;
+        }
       }
     }
     return labels;
