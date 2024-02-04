@@ -3,8 +3,8 @@ import Operands.*;
 import ProgramMemory.ProgramMemory;
 import Registers.*;
 
-public class JumpGratherThanZeroInstruction implements Instruction{
-  public JumpGratherThanZeroInstruction(ProgramMemory programMemory, BasicOperand operand, RegisterBank registerBank) {
+public class JumpGreaterThanZeroInstruction implements Instruction{
+  public JumpGreaterThanZeroInstruction(ProgramMemory programMemory, BasicOperand operand, RegisterBank registerBank) {
     this.programMemory = programMemory;
     this.operand = operand;
     this.registerBank = registerBank;
