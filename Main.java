@@ -5,7 +5,7 @@ import Instructions.*;
 
 import java.util.ArrayList;
 
-public class Programa {
+public class Main {
   public static void main(String[] args) {
     Tape tape = new InputTape("./inputs/input.txt");
     RegisterBank registerBank = new RegisterBank();
