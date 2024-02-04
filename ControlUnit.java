@@ -10,11 +10,11 @@ import java.util.ArrayList;
 
 public class ControlUnit {
   public ControlUnit(String filename, String inputTape) {
+    this.inputTape = new InputTape(inputTape);
+    this.outputTape = new OutputTape();
+    this.registerBank = new RegisterBank();
+    this.programMemory = new ProgramMemory();
     try {
-      this.inputTape = new InputTape(inputTape);
-      this.outputTape = new OutputTape();
-      this.registerBank = new RegisterBank();
-      this.programMemory = new ProgramMemory();
       Scanner scanner = new Scanner(new File(filename));
       String pattern = "(?m)(?<=^|\\s)#.*$";
       String pattern2 = "\\s+";
@@ -61,6 +61,9 @@ public class ControlUnit {
   }
   private Boolean isIndirect(String value) {
     return value.charAt(0) == '*';
+  }
+  private Boolean isLabel(String value) {
+    return value.charAt(value.length() - 1) == ':';
   }
   private Tape inputTape;
   private Tape outputTape;
