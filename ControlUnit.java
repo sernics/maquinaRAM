@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ControlUnit {
-  public ControlUnit(String filename, String inputTape) {
+  public ControlUnit(String filename, String inputTape, String outputTape) {
     this.inputTape = new InputTape(inputTape);
-    this.outputTape = new OutputTape();
+    this.outputTape = new OutputTape(outputTape);
     this.registerBank = new RegisterBank();
     this.programMemory = new ProgramMemory();
     ArrayList<String> tokens = new ArrayList<String>();
@@ -60,13 +60,11 @@ public class ControlUnit {
     HashMap<String, Integer> labels = parseLabels(tokens);
     for (int i = 0; i < tokens.size(); i++) {
       String token = tokens.get(i);
-      System.out.println( "/" + token + "/ " + token.length());
       Instruction instruction;
       instruction = null;
       BasicOperand operand;
       switch (token) {
         case "load":
-          System.out.println("load instruction");
           i++;
           if (isOperand(tokens.get(i))) {
             operand = parseOperand(tokens.get(i));
@@ -86,7 +84,6 @@ public class ControlUnit {
           }
           break;
         case "add":
-          System.out.println("add instruction");
           i++;
           if (isOperand(tokens.get(i))) {
             operand = parseOperand(tokens.get(i));
@@ -96,7 +93,6 @@ public class ControlUnit {
           }
           break;
         case "sub":
-          System.out.println("sub instruction");
           i++;
           if (isOperand(tokens.get(i))) {
             operand = parseOperand(tokens.get(i));
@@ -106,7 +102,6 @@ public class ControlUnit {
           }
           break;
         case "mult":
-          System.out.println("mul instruction");
           i++;
           if (isOperand(tokens.get(i))) {
             operand = parseOperand(tokens.get(i));
@@ -116,7 +111,6 @@ public class ControlUnit {
           }
           break;
         case "div":
-          System.out.println("div instruction");
           i++;
           if (isOperand(tokens.get(i))) {
             operand = parseOperand(tokens.get(i));
@@ -126,7 +120,6 @@ public class ControlUnit {
           }
           break;
         case "read":
-          System.out.println("read instruction");
           i++;
           if (isOperand(tokens.get(i))) {
             operand = parseOperand(tokens.get(i));
@@ -136,7 +129,6 @@ public class ControlUnit {
           }
           break;
         case "write":
-          System.out.println("write instruction");
           i++;
           if (isOperand(tokens.get(i))) {
             operand = parseOperand(tokens.get(i));
@@ -146,10 +138,8 @@ public class ControlUnit {
           }
           break;
         case "jump":
-          System.out.println("jump instruction");
           i++;
           if (labels.containsKey(tokens.get(i))) {
-            System.out.println(labels.get(tokens.get(i)));
             operand = new InmediateOperand(labels.get(tokens.get(i)));
             instruction = new JumpInstruction(programMemory, operand, registerBank);
           } else {
@@ -157,10 +147,8 @@ public class ControlUnit {
           }
           break;
         case "jzero":
-          System.out.println("jzero instruction");
           i++;
           if (labels.containsKey(tokens.get(i))) {
-            System.out.println(labels.get(tokens.get(i)));
             operand = new InmediateOperand(labels.get(tokens.get(i)));
             instruction = new JumpZeroInstruction(programMemory, operand, registerBank);
           } else {
@@ -168,7 +156,6 @@ public class ControlUnit {
           }
           break;
         case "jgtz":
-          System.out.println("jgtz instruction");
           i++;
           if (labels.containsKey(tokens.get(i))) {
             operand = new InmediateOperand(labels.get(tokens.get(i)));
@@ -178,7 +165,6 @@ public class ControlUnit {
           }
           break;
         case "halt":
-          System.out.println("halt instruction");
           instruction = new HaltInstruction();
           break;
         default:
@@ -187,9 +173,6 @@ public class ControlUnit {
       if (instruction != null) {
         programMemory.add(instruction);
       }
-    }
-    for (Instruction instruction : programMemory.getProgramMemory()) {
-      System.out.println(instruction);
     }
   }
 

@@ -1,7 +1,6 @@
 public class Main {
   public static void main(String[] args) {
-    ControlUnit controlUnit = new ControlUnit("test/test1.ram", "inputs/input.txt");
+    ControlUnit controlUnit = new ControlUnit("test/test1.ram", "inputs/input.txt", "outputs/output.txt");
     controlUnit.run();
-
   }
 }
