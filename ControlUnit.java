@@ -23,7 +23,7 @@ public class ControlUnit {
       Pattern p = Pattern.compile(pattern);
       Pattern p2 = Pattern.compile(pattern2);
       while (scanner.hasNextLine()) {
-        String line = scanner.nextLine();
+        String line = scanner.nextLine().toLowerCase();
         Matcher m = p.matcher(line);
         String lineWithoutComments = m.replaceAll("");
         m = p2.matcher(lineWithoutComments);
@@ -31,7 +31,6 @@ public class ControlUnit {
         if (!lineWithoutComments.equals("")) {
           // split the line by spaces
           String[] values = lineWithoutComments.split(" ");
-          // Print tokens
           for (String value : values) {
             if (!value.equals("")) {
               tokens.add(value);
@@ -150,6 +149,7 @@ public class ControlUnit {
           System.out.println("jump instruction");
           i++;
           if (labels.containsKey(tokens.get(i))) {
+            System.out.println(labels.get(tokens.get(i)));
             operand = new InmediateOperand(labels.get(tokens.get(i)));
             instruction = new JumpInstruction(programMemory, operand, registerBank);
           } else {
@@ -160,6 +160,7 @@ public class ControlUnit {
           System.out.println("jzero instruction");
           i++;
           if (labels.containsKey(tokens.get(i))) {
+            System.out.println(labels.get(tokens.get(i)));
             operand = new InmediateOperand(labels.get(tokens.get(i)));
             instruction = new JumpZeroInstruction(programMemory, operand, registerBank);
           } else {
@@ -187,13 +188,9 @@ public class ControlUnit {
         programMemory.add(instruction);
       }
     }
-
-    // Print labels
-    System.out.println("Labels:");
-    for (String label : labels.keySet()) {
-      System.out.println(label + " " + labels.get(label));
+    for (Instruction instruction : programMemory.getProgramMemory()) {
+      System.out.println(instruction);
     }
-    System.out.println("Program memory: " + programMemory.getProgramMemory().size());
   }
 
   private Boolean isInmediate(String value) {
