@@ -18,5 +18,8 @@ public class RegisterBank {
   public boolean containsRegister(int address) {
     return memory.containsKey(address);
   }
+  public HashMap<Integer, Register> getMemory() {
+    return memory;
+  }
   private HashMap<Integer, Register> memory;
 }
