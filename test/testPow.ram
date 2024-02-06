@@ -1,0 +1,15 @@
+          READ 7
+          READ 0
+          STORE 1
+          STORE 2
+          SUB 7
+while:    JZERO endwhile
+          STORE 3
+          LOAD 1
+          MULT 2
+          STORE 1
+          LOAD 3
+          SUB 7
+          JUMP while
+endwhile:  WRITE 1
+          HALT
