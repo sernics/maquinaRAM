@@ -1,10 +1,9 @@
 # Programa que lee los elementos la cinta de entrada hasta
 # que encuentre un 0 y escribe la suma de todos los elementos 
-# leï¿½dos a la cinta de salida
+# leídos a la cinta de salida
 
-				READ 8
 				READ 1
-				LOAD 8
+				LOAD =0
 				STORE 2
 bucle:	LOAD 1
 				JZERO fin
