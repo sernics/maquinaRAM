@@ -47,7 +47,7 @@ public class ControlUnit {
 
   public void run() {
     // Imprimir programMemory
-    programMemory.print();
+    programMemory.print(this.registerBank);
     while (true) {
       registerBank.print();
       operate();
@@ -77,8 +77,10 @@ public class ControlUnit {
           }
           break;
         case "store":
-          System.out.println("store instruction");
           i++;
+          if (this.isInmediate(tokens.get(i))) {
+            throw new RuntimeException("Inmediate operand, invalid for store instruction");
+          }
           if (isOperand(tokens.get(i))) {
             operand = parseOperand(tokens.get(i));
             instruction = new StoreInstruction(registerBank, operand);

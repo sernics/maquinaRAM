@@ -1,6 +1,7 @@
 package ProgramMemory;
 import Instructions.*;
 import java.util.ArrayList;
+import Registers.*;
 
 public class ProgramMemory {
   public ProgramMemory() {
@@ -24,9 +25,13 @@ public class ProgramMemory {
   public void setHead(Integer head) {
     this.head = head;
   }
-  public void print() {
+  public void print(RegisterBank registerBank) {
     for (Instruction instruction : programMemory) {
-      
+      if (instruction.getOperand() == null) {
+        System.out.println(instruction.toString());
+      } else {
+        System.out.println(instruction.toString() + ' ' + instruction.getOperand().getAddress(registerBank));
+      }
     }
   }
   private ArrayList<Instruction> programMemory;
