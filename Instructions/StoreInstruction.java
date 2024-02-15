@@ -11,6 +11,9 @@ public class StoreInstruction implements Instruction {
     // Save on operand address the value of r0
     registerBank.putRegister(operand.getAddress(registerBank), registerBank.getRegister(0));
   }
+  public BasicOperand getOperand() {
+    return operand;
+  }
   private RegisterBank registerBank;
   private BasicOperand operand;
 }

@@ -12,6 +12,9 @@ public class JumpInstruction implements Instruction {
   public void operate() {
     programMemory.setHead(operand.getAddress(registerBank));
   }
+  public BasicOperand getOperand() {
+    return operand;
+  }
   private ProgramMemory programMemory;
   private BasicOperand operand;
   private RegisterBank registerBank;

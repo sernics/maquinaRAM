@@ -13,6 +13,9 @@ public class ReadInstruction implements Instruction {
   public void operate() {
     this.registerBank.putRegister(this.operand.getAddress(registerBank), new IntegerRegister(this.tape.read()));
   }
+  public BasicOperand getOperand() {
+    return operand;
+  }
   private Tape tape;
   private RegisterBank registerBank;
   private BasicOperand operand;

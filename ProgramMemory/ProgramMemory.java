@@ -24,6 +24,11 @@ public class ProgramMemory {
   public void setHead(Integer head) {
     this.head = head;
   }
+  public void print() {
+    for (Instruction instruction : programMemory) {
+      
+    }
+  }
   private ArrayList<Instruction> programMemory;
   private Integer head;
 }

@@ -15,6 +15,9 @@ public class MulInstruction implements Instruction {
       new IntegerRegister(registerBank.getRegisterValue(0) * operand.getValue(registerBank))
     );
   }
+  public BasicOperand getOperand() {
+    return operand;
+  }
   private RegisterBank registerBank;
   private BasicOperand operand;
 }

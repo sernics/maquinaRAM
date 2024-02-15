@@ -13,6 +13,9 @@ public class WriteInstruction implements Instruction {
   public void operate() {
     this.tape.write(this.registerBank.getRegisterValue(this.operand.getAddress(registerBank)));
   }
+  public BasicOperand getOperand() {
+    return operand;
+  }
   private Tape tape;
   private RegisterBank registerBank;
   private BasicOperand operand;

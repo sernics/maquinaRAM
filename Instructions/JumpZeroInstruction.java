@@ -14,6 +14,9 @@ public class JumpZeroInstruction implements Instruction {
       programMemory.setHead(operand.getAddress(registerBank));
     }
   }
+  public BasicOperand getOperand() {
+    return operand;
+  }
   private ProgramMemory programMemory;
   private BasicOperand operand;
   private RegisterBank registerBank;

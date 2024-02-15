@@ -46,12 +46,10 @@ public class ControlUnit {
   }
 
   public void run() {
+    // Imprimir programMemory
+    programMemory.print();
     while (true) {
-      HashMap<Integer, Register> memory = registerBank.getMemory();
-      for (Integer key : memory.keySet()) {
-        System.out.println("Register " + key + ": " + memory.get(key).getValue());
-      }
-      System.out.println();
+      registerBank.print();
       operate();
     }
   }

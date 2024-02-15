@@ -21,5 +21,11 @@ public class RegisterBank {
   public HashMap<Integer, Register> getMemory() {
     return memory;
   }
+  public void print() {
+    for (Integer key : memory.keySet()) {
+      System.out.println("Register " + key + ": " + memory.get(key).getValue());
+    }
+    System.out.println();
+  }
   private HashMap<Integer, Register> memory;
 }
