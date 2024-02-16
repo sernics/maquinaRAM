@@ -13,6 +13,9 @@ public class ArrayOperand implements BasicOperand {
   public int getAddress(RegisterBank registerBank) {
     return value;
   }
+  public Boolean isArray() {
+    return true;
+  }
   private Integer value;
   private BasicOperand index;
 }

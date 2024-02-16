@@ -10,7 +10,11 @@ public class ReadInstruction implements Instruction {
     this.operand = operand;
   }
   public void operate() {
-    this.registerBank.putRegister(this.operand.getAddress(registerBank), new IntegerRegister(this.tape.read()));
+    if (!this.operand.isArray()) {
+      this.registerBank.putRegister(this.operand.getAddress(registerBank), new IntegerRegister(this.tape.read()));
+    } else {
+      this.registerBank.getRegister(this.operand.getAddress(registerBank)).setValue(this.tape.read());
+    }
   }
   public BasicOperand getOperand() {
     return operand;
