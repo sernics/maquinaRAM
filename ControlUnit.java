@@ -44,15 +44,13 @@ public class ControlUnit {
     parser.Parse(tokens, programMemory, registerBank, this.inputTape, this.outputTape);
   }
 
-  public void run() {
-    while (true) {
-      operate();
-    }
-  }
-
   public void operate() {
     Instruction instruction = programMemory.read();
     instruction.operate();
+  }
+
+  public Instruction getActualInstruction() {
+    return programMemory.getActualInstruction();
   }
 
   private Tape inputTape;
