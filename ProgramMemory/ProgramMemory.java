@@ -15,6 +15,7 @@ public class ProgramMemory {
     return programMemory;
   }
   public Instruction read() {
+    System.out.println(head);
     Instruction value = programMemory.get(head);
     head++;
     return value;
