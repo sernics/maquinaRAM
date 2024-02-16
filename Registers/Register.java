@@ -7,5 +7,5 @@ public interface Register {
   public default void setValue(int value) {
     throw new UnsupportedOperationException();
   }
-  void print();
+  public void print();
 }
