@@ -44,32 +44,32 @@ public class ControlUnit {
     parser.Parse(tokens, programMemory, registerBank, this.inputTape, this.outputTape);
   }
 
-  public void operate() {
+  protected void operate() {
     Instruction instruction = programMemory.read();
     instruction.operate();
   }
 
-  public Instruction getActualInstruction() {
+  protected Instruction getActualInstruction() {
     return programMemory.getActualInstruction();
   }
 
-  public Integer getProgramHead() {
+  protected Integer getProgramHead() {
     return programMemory.getHead();
   }
 
-  public Integer getHaltInteger() {
+  protected Integer getHaltInteger() {
     return programMemory.getProgramMemory().size() - 1;
   }
 
-  public RegisterBank getRegisterBank() {
+  protected RegisterBank getRegisterBank() {
     return registerBank;
   }
 
-  public Tape getInputTape() {
+  protected Tape getInputTape() {
     return inputTape;
   }
 
-  public Tape getOutputTape() {
+  protected Tape getOutputTape() {
     return outputTape;
   }
 
