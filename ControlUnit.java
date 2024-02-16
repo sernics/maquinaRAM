@@ -46,6 +46,10 @@ public class ControlUnit {
   }
 
   public void run() {
+    // Inicializar 10 registros a 0
+    for (int i = 0; i < 10; i++) {
+      registerBank.putRegister(i, new IntegerRegister(0));
+    }
     // Imprimir programMemory
     programMemory.print(this.registerBank);
     while (true) {
