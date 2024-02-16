@@ -55,3 +55,13 @@
 - Registro será una clase abstracta que en principio será un int
 
 #### Program memory
+Tendrá lo siguiente: 
+  - Un ArrayList de instrucciones
+  - Un entero que será el contador de programa (head)
+
+## Unidad de control
+- Se encargará de controlar el flujo del programa
+- Tendrá acceso a la memoria de programa y a la memoria de datos
+- Tendrá acceso a la unidad aritmética, lógica y de control
+- Tendrá acceso a la unidad de entrada y a la unidad de salida
+- Es donde se realizará el parseo de las instrucciones
