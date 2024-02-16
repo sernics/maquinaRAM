@@ -16,14 +16,21 @@ public class InputTape implements Tape {
       System.out.println("File not found: " + filename);
     }
   }
+
   public ArrayList<Integer> getTape() {
     return tape;
   }
-  public int read() {
+
+  public Integer read() {
     Integer value = tape.get(head);
     head++;
     return value;
   }
+
+  public Integer getHead() {
+    return head;
+  }
+
   private Integer head;
   private ArrayList<Integer> tape;
 }

@@ -25,7 +25,6 @@ public class RegisterBank {
     for (Integer key : memory.keySet()) {
       System.out.println("Register " + key + ": " + memory.get(key).getValue());
     }
-    System.out.println();
   }
   private HashMap<Integer, Register> memory;
 }

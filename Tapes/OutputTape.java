@@ -8,11 +8,11 @@ public class OutputTape implements Tape {
     tape = new ArrayList<Integer>();
     this.filename = filename;
   }
+
   public void write(int value) {
     tape.add(value);
     try {
       FileWriter writer = new FileWriter(this.filename);
-      System.out.println("Writing to file: " + value);
       for (int i = 0; i < tape.size(); i++) {
         writer.write(tape.get(i) + " ");
       }
@@ -22,9 +22,15 @@ public class OutputTape implements Tape {
       e.printStackTrace();
     }
   }
+
   public ArrayList<Integer> getTape() {
     return tape;
   }
+
+  public Integer getHead() {
+    return tape.size();
+  }
+
   private ArrayList<Integer> tape;
   private String filename;
 }

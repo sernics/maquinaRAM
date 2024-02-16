@@ -61,6 +61,18 @@ public class ControlUnit {
     return programMemory.getProgramMemory().size() - 1;
   }
 
+  public RegisterBank getRegisterBank() {
+    return registerBank;
+  }
+
+  public Tape getInputTape() {
+    return inputTape;
+  }
+
+  public Tape getOutputTape() {
+    return outputTape;
+  }
+
   private Tape inputTape;
   private Tape outputTape;
   private RegisterBank registerBank;
