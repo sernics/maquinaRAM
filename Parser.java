@@ -146,12 +146,22 @@ public class Parser {
     return value.charAt(0) == '=' || value.charAt(0) == '*' || Character.isDigit(value.charAt(0));
   }
 
+  private Boolean isArray(String value) {
+    return value.matches("R[0-9]+\\[[0-9]+\\]");
+  }
+
   private BasicOperand parseOperand(String value) {
     if (isInmediate(value)) {
       return new InmediateOperand(Integer.parseInt(value.substring(1)));
     } else if (isIndirect(value)) {
       return new IndirectOperand(Integer.parseInt(value.substring(1)));
-    } else {
+    } else if (isArray(value)) {
+      String[] parts = value.split("\\[");
+      String register = parts[0];
+      String index = parts[1].substring(0, parts[1].length() - 1);
+      return new ArrayOperand(Integer.parseInt(register.substring(1)), new InmediateOperand(Integer.parseInt(index)));
+    }
+    else {
       return new DirectOperand(Integer.parseInt(value));
     }
   }
