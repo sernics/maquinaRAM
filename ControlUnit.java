@@ -51,6 +51,7 @@ public class ControlUnit {
     programMemory.print(this.registerBank);
     while (true) {
       registerBank.print();
+      System.out.println("Instruction: " + programMemory.getActualInstruction().toString());
       operate();
     }
   }

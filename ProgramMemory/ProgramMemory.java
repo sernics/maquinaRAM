@@ -14,6 +14,9 @@ public class ProgramMemory {
   public ArrayList<Instruction> getProgramMemory() {
     return programMemory;
   }
+  public Instruction getActualInstruction() {
+    return programMemory.get(head);
+  }
   public Instruction read() {
     System.out.println(head);
     Instruction value = programMemory.get(head);
