@@ -150,7 +150,7 @@ public class Parser {
     return value.matches("R[0-9]+\\[[0-9]+\\]");
   }
 
-  private BasicOperand parseOperand(String value) {
+  public BasicOperand parseOperand(String value) {
     if (isInmediate(value)) {
       return new InmediateOperand(Integer.parseInt(value.substring(1)));
     } else if (isIndirect(value)) {
