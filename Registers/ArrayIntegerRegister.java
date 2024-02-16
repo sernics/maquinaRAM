@@ -6,6 +6,9 @@ public class ArrayIntegerRegister implements Register {
   public ArrayIntegerRegister() {
     values = new ArrayList<Integer>();
   }
+  public void setValue(int value) {
+    values.add(value);
+  }
   public void print() {
     System.out.print("[");
     for (int i = 0; i < values.size(); i++) {
