@@ -13,5 +13,8 @@ public class IntegerRegister implements Register {
   public void setValue(int value) {
     this.value = value;
   }
+  public void print() {
+    System.out.print(value);
+  }
   private int value;
 }
