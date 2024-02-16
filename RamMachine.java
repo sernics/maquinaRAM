@@ -9,17 +9,19 @@ public class RamMachine {
 
   public void run(Integer debugMode) {
     Integer instructionsCounter = 0;
-    while (controlUnit.getActualInstruction().isHalt() == false) {
+    Integer haltInteger = controlUnit.getHaltInteger();
+    while (controlUnit.getProgramHead() <= haltInteger) {
+      if (debugMode == 2) {
+        System.out.println("Hola");
+      }
       controlUnit.operate();
       instructionsCounter++;
     }
-    controlUnit.operate();
-    instructionsCounter++;
     if (debugMode == 1) {
       System.out.println("Número de instrucciones ejecutadas: " + instructionsCounter);
     }
     // Finalizar programa
-    System.exit(0);
+    return;
   }
   ControlUnit controlUnit;
 }

@@ -9,7 +9,4 @@ public class HaltInstruction implements Instruction {
   public BasicOperand getOperand() {
     return null;
   }
-  public boolean isHalt() {
-    return true;
-  }
 }

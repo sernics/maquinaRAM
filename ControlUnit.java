@@ -53,6 +53,14 @@ public class ControlUnit {
     return programMemory.getActualInstruction();
   }
 
+  public Integer getProgramHead() {
+    return programMemory.getHead();
+  }
+
+  public Integer getHaltInteger() {
+    return programMemory.getProgramMemory().size() - 1;
+  }
+
   private Tape inputTape;
   private Tape outputTape;
   private RegisterBank registerBank;
