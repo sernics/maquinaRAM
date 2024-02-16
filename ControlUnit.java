@@ -1,5 +1,4 @@
 import Tapes.*;
-import Operands.*;
 import ProgramMemory.ProgramMemory;
 import Registers.*;
 import Instructions.*;
@@ -7,7 +6,6 @@ import java.io.File;
 import java.util.Scanner;
 import java.util.regex.*;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class ControlUnit {
   public ControlUnit(String filename, String inputTape, String outputTape) {
@@ -56,16 +54,6 @@ public class ControlUnit {
     Instruction instruction = programMemory.read();
     instruction.operate();
   }
-
-  
-
-  
-
-  
-
-  
-
-  
 
   private Tape inputTape;
   private Tape outputTape;

@@ -1,21 +1,7 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import Instructions.AddInstruction;
-import Instructions.DivInstruction;
-import Instructions.HaltInstruction;
-import Instructions.Instruction;
-import Instructions.JumpGreaterThanZeroInstruction;
-import Instructions.JumpInstruction;
-import Instructions.JumpZeroInstruction;
-import Instructions.LoadInstruction;
-import Instructions.MulInstruction;
-import Instructions.ReadInstruction;
-import Instructions.StoreInstruction;
-import Instructions.SubInstruction;
-import Instructions.WriteInstruction;
-import Operands.BasicOperand;
-import Operands.InmediateOperand;
+import Instructions.*;
 import ProgramMemory.ProgramMemory;
 import Registers.RegisterBank;
 import Tapes.*;
