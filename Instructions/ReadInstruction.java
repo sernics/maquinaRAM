@@ -3,7 +3,6 @@ import Tapes.*;
 import Registers.*;
 import Operands.*;
 
-
 public class ReadInstruction implements Instruction {
   public ReadInstruction(Tape tape, RegisterBank registerBank, BasicOperand operand) {
     this.tape = tape;

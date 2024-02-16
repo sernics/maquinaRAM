@@ -19,5 +19,11 @@ public class ArrayIntegerRegister implements Register {
     }
     System.out.print("]");
   }
+  public Integer getValue(Integer address) {
+    return values.get(address);
+  }
+  public Boolean isArray() {
+    return true;
+  }
   private ArrayList<Integer> values;
 }
