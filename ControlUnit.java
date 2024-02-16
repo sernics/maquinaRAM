@@ -24,7 +24,6 @@ public class ControlUnit {
       Pattern p2 = Pattern.compile(pattern2);
       while (scanner.hasNextLine()) {
         String line = scanner.nextLine().toLowerCase();
-        System.out.println(line);
         Matcher m = p.matcher(line);
         String lineWithoutComments = m.replaceAll("");
         m = p2.matcher(lineWithoutComments);
@@ -51,7 +50,6 @@ public class ControlUnit {
     programMemory.print(this.registerBank);
     while (true) {
       registerBank.print();
-      System.out.println("Instruction: " + programMemory.getActualInstruction().toString());
       operate();
     }
   }
