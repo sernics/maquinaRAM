@@ -1,5 +1,3 @@
-import Instructions.Instruction;
-
 public class RamMachine {
   public RamMachine(String filename, String inputTape, String outputTape) {
     controlUnit = new ControlUnit(filename, inputTape, outputTape);
