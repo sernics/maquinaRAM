@@ -15,6 +15,7 @@ public class ControlUnit {
     this.outputTape = new OutputTape(outputTape);
     this.registerBank = new RegisterBank();
     this.programMemory = new ProgramMemory();
+    this.requiredRegisters = 0;
     ArrayList<String> tokens = new ArrayList<String>();
     try {
       Scanner scanner = new Scanner(new File(filename));
@@ -46,8 +47,8 @@ public class ControlUnit {
   }
 
   public void run() {
-    // Inicializar 10 registros a 0
-    for (int i = 0; i < 10; i++) {
+    // Inicializar registros necesarios
+    for (int i = 0; i < 3; i++) {
       registerBank.putRegister(i, new IntegerRegister(0));
     }
     // Imprimir programMemory
@@ -231,4 +232,5 @@ public class ControlUnit {
   private Tape outputTape;
   private RegisterBank registerBank;
   private ProgramMemory programMemory;
+  private Integer requiredRegisters;
 }
