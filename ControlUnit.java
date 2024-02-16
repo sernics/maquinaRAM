@@ -106,7 +106,7 @@ public class ControlUnit {
             throw new RuntimeException("Invalid operand");
           }
           break;
-        case "mult":
+        case "mul" :
           i++;
           if (isOperand(tokens.get(i))) {
             operand = parseOperand(tokens.get(i));

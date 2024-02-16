@@ -20,6 +20,7 @@ public class ProgramMemory {
   public Instruction read() {
     System.out.println(head);
     Instruction value = programMemory.get(head);
+    System.out.println(value.toString());
     head++;
     return value;
   }
