@@ -159,7 +159,7 @@ public class Parser {
       String[] parts = value.split("\\[");
       String register = parts[0];
       String index = parts[1].substring(0, parts[1].length() - 1);
-      return new ArrayOperand(Integer.parseInt(register.substring(1)), new InmediateOperand(Integer.parseInt(index)));
+      return new ArrayOperand(Integer.parseInt(register.substring(1)), parseOperand(index));
     }
     else {
       return new DirectOperand(Integer.parseInt(value));
