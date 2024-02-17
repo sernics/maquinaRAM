@@ -17,4 +17,3 @@ public class StoreInstruction implements Instruction {
   private RegisterBank registerBank;
   private BasicOperand operand;
 }
-
