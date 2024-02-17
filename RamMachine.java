@@ -9,7 +9,22 @@ public class RamMachine extends ControlUnit {
     run(0);
   }
 
-  public void debugg(Integer debugMode) {
+  public void run(Integer debugMode) {
+    Integer instructionsCounter = 0;
+    Integer haltInteger = getHaltInteger();
+    while (getProgramHead() <= haltInteger) {
+      debugg(debugMode);
+      operate();
+      instructionsCounter++;
+    }
+    if (debugMode == 1 || debugMode == 2) {
+      System.out.println("Número de instrucciones ejecutadas: " + instructionsCounter);
+    }
+    // Finalizar programa
+    return;
+  }
+
+  private void debugg(Integer debugMode) {
     if (debugMode == 2) {
       System.out.println(getActualInstruction().toString());
       getRegisterBank().print();
@@ -30,20 +45,5 @@ public class RamMachine extends ControlUnit {
       System.out.println("Actual Position -> " + getOutputTape().getHead());
       System.out.println();
     }
-  }
-
-  public void run(Integer debugMode) {
-    Integer instructionsCounter = 0;
-    Integer haltInteger = getHaltInteger();
-    while (getProgramHead() <= haltInteger) {
-      debugg(debugMode);
-      operate();
-      instructionsCounter++;
-    }
-    if (debugMode == 1 || debugMode == 2) {
-      System.out.println("Número de instrucciones ejecutadas: " + instructionsCounter);
-    }
-    // Finalizar programa
-    return;
   }
 }

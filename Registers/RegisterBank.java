@@ -1,4 +1,5 @@
 package Registers;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class RegisterBank {
@@ -16,7 +17,13 @@ public class RegisterBank {
   }
 
   public void putRegister(int address, Register register) {
-    memory.put(address, register);
+    if (getRegister(address).isArray()) {
+      Register values = memory.get(address);
+      values.setValue(register.getValue());
+      memory.put(address, values);
+    } else {
+      memory.put(address, register);
+    }
   }
 
   public boolean containsRegister(int address) {
