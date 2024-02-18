@@ -143,11 +143,11 @@ public class Parser {
   }
 
   private Boolean isOperand(String value) {
-    return value.charAt(0) == '=' || value.charAt(0) == '*' || Character.isDigit(value.charAt(0)) || isArray(value);
+    return value.charAt(0) == '=' || value.charAt(0) == '*' || Character.isDigit(value.charAt(0)) || value.matches("R\\d+\\[(=|\\*)?\\d+\\]");
   }
 
   private Boolean isArray(String value) {
-    return value.matches("R[0-9]+\\[[0-9]+\\]");
+    return value.matches("R\\d+\\[(=|\\*)?\\d+\\]");
   }
 
   public BasicOperand parseOperand(String value) {
