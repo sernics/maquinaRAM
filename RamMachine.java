@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import Registers.ArrayIntegerRegister;
-import Registers.IntegerRegister;
 
 public class RamMachine extends ControlUnit {
   public RamMachine(String filename, String inputTape, String outputTape) {
