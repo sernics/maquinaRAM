@@ -1,5 +1,3 @@
       LOAD =100
       STORE 1
-      LOAD R1[0]
-      WRITE 0
 fin:	HALT

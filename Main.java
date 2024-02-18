@@ -10,7 +10,5 @@ public class Main {
     RamMachine ramMachine = new RamMachine("test/insertion.ram", "inputs/input.txt", "outputs/output.txt");
     ramMachine.setArray(list);
     ramMachine.run(2);
-    String valor = "R1[0]";
-    System.out.println(valor.matches("R\\d+\\[(=|\\*)?\\d+\\]"));
   }
 }
