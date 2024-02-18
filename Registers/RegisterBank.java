@@ -16,6 +16,7 @@ public class RegisterBank {
   }
 
   public void putRegister(int address, Register register) {
+    System.out.println("Is array: " + getRegister(address).isArray());
     if (getRegister(address).isArray()) {
       Register values = memory.get(address);
       values.setValue(register.getValue());
