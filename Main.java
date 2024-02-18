@@ -12,3 +12,4 @@ public class Main {
     ramMachine.run(2);
   }
 }
+  

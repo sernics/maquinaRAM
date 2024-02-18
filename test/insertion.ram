@@ -1,3 +1,5 @@
       LOAD =100
       STORE 1
+      LOAD =20
+      STORE 2
 fin:	HALT
