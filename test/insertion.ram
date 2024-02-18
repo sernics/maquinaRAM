@@ -1,0 +1,3 @@
+      LOAD =100
+      STORE 1
+fin:	HALT

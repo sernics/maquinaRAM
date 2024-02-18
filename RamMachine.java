@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import Registers.ArrayIntegerRegister;
+import Registers.IntegerRegister;
 
 public class RamMachine extends ControlUnit {
   public RamMachine(String filename, String inputTape, String outputTape) {
@@ -45,5 +47,9 @@ public class RamMachine extends ControlUnit {
       System.out.println("Actual Position -> " + getOutputTape().getHead());
       System.out.println();
     }
+  }
+
+  public void setArray(ArrayList<Integer> array) {
+    getRegisterBank().putRegister(1, new ArrayIntegerRegister(array));
   }
 }

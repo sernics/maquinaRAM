@@ -6,6 +6,9 @@ public class ArrayIntegerRegister implements Register {
   public ArrayIntegerRegister() {
     values = new ArrayList<Integer>();
   }
+  public ArrayIntegerRegister(ArrayList<Integer> values) {
+    this.values = values;
+  }
   public void setValue(int value) {
     values.add(value);
   }
