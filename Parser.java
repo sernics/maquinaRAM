@@ -143,7 +143,7 @@ public class Parser {
   }
 
   private Boolean isOperand(String value) {
-    return value.charAt(0) == '=' || value.charAt(0) == '*' || Character.isDigit(value.charAt(0));
+    return value.charAt(0) == '=' || value.charAt(0) == '*' || Character.isDigit(value.charAt(0)) || isArray(value);
   }
 
   private Boolean isArray(String value) {
