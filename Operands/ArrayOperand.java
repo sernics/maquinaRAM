@@ -7,12 +7,16 @@ public class ArrayOperand implements BasicOperand {
     this.value = value;
     this.index = index;
   }
+
   public int getValue(RegisterBank registerBank) {
-    return registerBank.getRegister(value).getValue(index.getAddress(registerBank));
+    Integer solvedIndex = index.getAddress(registerBank);
+    return registerBank.getRegister(value).getValue(solvedIndex);
   }
+
   public int getAddress(RegisterBank registerBank) {
     return value;
   }
+
   public Boolean isArray() {
     return true;
   }

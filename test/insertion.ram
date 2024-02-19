@@ -1,5 +1,6 @@
-      LOAD =100
+      READ 0
       STORE 1
       LOAD =20
       STORE 2
+      LOAD =4
 fin:	HALT
