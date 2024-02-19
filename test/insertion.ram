@@ -1,3 +1,30 @@
-LOAD =10000
-STORE R1[0]
-HALT
+                                          // Cargamos lo necesario
+                                          LOAD =1
+                                          STORE 2
+                                          LOAD =10
+                                          STORE 4
+
+for:                                      LOAD 4
+                                          SUB 2
+                                          JZERO fin_for
+
+                                          LOAD R1[*2]                         // Cargamos A[j]
+                                          STORE 5                             // key = A[j]
+                                          LOAD 2                              // i = j - 1
+                                          SUB =1
+                                          STORE 3
+
+                                          // Bucle while
+
+                                          // Actualizamos el estado de j para el for
+                                          LOAD 2
+                                          ADD =1
+                                          STORE 2
+
+                                          JUMP for
+
+
+
+fin_for:                                  HALT
+
+
