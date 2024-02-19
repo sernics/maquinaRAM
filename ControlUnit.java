@@ -40,6 +40,10 @@ public class ControlUnit {
     } catch (java.io.FileNotFoundException e) {
       System.out.println("File not found: " + filename);
     }
+    // Imprimir tokens
+    for (String token : tokens) {
+      System.out.println(token);
+    }
     Parser parser = new Parser();
     parser.Parse(tokens, programMemory, registerBank, this.inputTape, this.outputTape);
   }
