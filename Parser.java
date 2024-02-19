@@ -84,14 +84,12 @@ public class Parser {
           break;
         case "write":
           i++;
-          // if (isOperand(tokens.get(i))) {
-          //   operand = parseOperand(tokens.get(i));
-          //   instruction = new WriteInstruction(outputTape, registerBank, operand);
-          // } else {
-          //   throw new RuntimeException("Invalid operand");
-          // }
-          operand = parseOperand(tokens.get(i));
-          instruction = new WriteInstruction(outputTape, registerBank, operand);
+          if (isOperand(tokens.get(i))) {
+            operand = parseOperand(tokens.get(i));
+            instruction = new WriteInstruction(outputTape, registerBank, operand);
+          } else {
+            throw new RuntimeException("Invalid operand");
+          }
           break;
         case "jump":
           i++;
@@ -149,7 +147,7 @@ public class Parser {
   }
 
   private Boolean isArray(String value) {
-    return value.matches("R\\d+\\[(=|\\*)?\\d+\\]");
+    return value.contains("[") && value.contains("]");
   }
 
   private Boolean isDirect(String value) {
