@@ -84,12 +84,14 @@ public class Parser {
           break;
         case "write":
           i++;
-          if (isOperand(tokens.get(i))) {
-            operand = parseOperand(tokens.get(i));
-            instruction = new WriteInstruction(outputTape, registerBank, operand);
-          } else {
-            throw new RuntimeException("Invalid operand");
-          }
+          // if (isOperand(tokens.get(i))) {
+          //   operand = parseOperand(tokens.get(i));
+          //   instruction = new WriteInstruction(outputTape, registerBank, operand);
+          // } else {
+          //   throw new RuntimeException("Invalid operand");
+          // }
+          operand = parseOperand(tokens.get(i));
+          instruction = new WriteInstruction(outputTape, registerBank, operand);
           break;
         case "jump":
           i++;
@@ -151,6 +153,7 @@ public class Parser {
   }
 
   public BasicOperand parseOperand(String value) {
+    System.out.println(value);
     if (isInmediate(value)) {
       return new InmediateOperand(Integer.parseInt(value.substring(1)));
     } else if (isIndirect(value)) {

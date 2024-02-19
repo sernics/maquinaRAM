@@ -3,4 +3,5 @@
       LOAD =20
       STORE 2
       LOAD =4
+      WRITE R1[*0]
 fin:	HALT
