@@ -12,7 +12,7 @@ public class SubInstruction implements Instruction {
   public void operate() {
     registerBank.putRegister(
       0, 
-      new IntegerRegister(registerBank.getRegisterValue(0) - operand.getValue(registerBank))
+      new IntegerRegister(registerBank.getRegisterValue(0, this.operand.getArrayIndex(registerBank)) - operand.getValue(registerBank))
     );
   }
   public BasicOperand getOperand() {

@@ -20,9 +20,11 @@ public class Main {
     ramMachine.setArray(aleatoryNumbers);
     ramMachine.run(2);
     RegisterBank registerBank = ramMachine.getRegisterBank();
-    BasicOperand operand = new ArrayOperand(1, new IndirectOperand(0));
+    BasicOperand operand = new ArrayOperand(1, new DirectOperand(1));
     Tape outputTape = ramMachine.getOutputTape();
-    Instruction instruction = new WriteInstruction(outputTape, registerBank, operand);
-    instruction.operate();
+    Instruction writeInstruction = new WriteInstruction(outputTape, registerBank, operand);
+    writeInstruction.operate();
+    // RamMachine ramMachine = new RamMachine("test/test7.ram", "inputs/input.txt", "outputs/output.txt");
+    // ramMachine.run(2);
   }
 }

@@ -11,8 +11,12 @@ public class RegisterBank {
     return memory.get(address);
   }
 
-  public Integer getRegisterValue(int address) {
-    return memory.get(address).getValue();
+  public Integer getRegisterValue(Integer address, Integer index) {
+    if (index == null) {
+      return memory.get(address).getValue();
+    } else {
+      return memory.get(address).getValue(index);
+    }
   }
 
   public void putRegister(int address, Register register) {

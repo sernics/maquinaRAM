@@ -20,6 +20,11 @@ public class ArrayOperand implements BasicOperand {
   public Boolean isArray() {
     return true;
   }
+
+  public Integer getArrayIndex(RegisterBank registerBank) {
+    return index.getAddress(registerBank);
+  }
+
   private Integer value;
   private BasicOperand index;
 }

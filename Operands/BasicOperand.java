@@ -7,4 +7,7 @@ public interface BasicOperand {
   public default Boolean isArray() {
     return false;
   }
+  public default Integer getArrayIndex(RegisterBank registerBank) {
+    return null;
+  }
 }
