@@ -2,6 +2,7 @@
       STORE 1
       LOAD =20
       STORE 2
-      LOAD =4
+      LOAD =0
       WRITE R1[*0]
+      LOAD =2
 fin:	HALT

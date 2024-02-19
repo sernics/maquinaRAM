@@ -152,20 +152,25 @@ public class Parser {
     return value.matches("R\\d+\\[(=|\\*)?\\d+\\]");
   }
 
+  private Boolean isDirect(String value) {
+    return Character.isDigit(value.charAt(0));
+  }
+
   public BasicOperand parseOperand(String value) {
     System.out.println(value);
     if (isInmediate(value)) {
       return new InmediateOperand(Integer.parseInt(value.substring(1)));
     } else if (isIndirect(value)) {
       return new IndirectOperand(Integer.parseInt(value.substring(1)));
-    } else if (isArray(value)) {
+    } else if (isDirect(value)) {
+      return new DirectOperand(Integer.parseInt(value));
+    }
+    else {
       String[] parts = value.split("\\[");
       String register = parts[0];
       String index = parts[1].substring(0, parts[1].length() - 1);
       return new ArrayOperand(Integer.parseInt(register.substring(1)), parseOperand(index));
-    }
-    else {
-      return new DirectOperand(Integer.parseInt(value));
+      
     }
   }
 
