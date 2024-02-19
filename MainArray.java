@@ -1,8 +1,5 @@
 import java.util.ArrayList;
 
-import Registers.Register;
-import Registers.RegisterBank;
-
 public class MainArray {
   public static void main(String[] args) {
     ArrayList<Integer> aleatoryNumbers = new ArrayList<Integer>();
