@@ -8,8 +8,12 @@ public class StoreInstruction implements Instruction {
     this.operand = operand;
   }
   public void operate () {
-    // Save on operand address the value of r0
-    registerBank.putRegister(operand.getAddress(registerBank), registerBank.getRegister(0));
+    if (operand.isArray()) {
+      System.out.println("Es un array");
+      registerBank.putArrayValue(operand.getArrayIndex(registerBank), registerBank.getRegister(0).getValue());
+    } else {
+      registerBank.putRegister(operand.getAddress(registerBank), registerBank.getRegister(0));
+    }
   }
   public BasicOperand getOperand() {
     return operand;

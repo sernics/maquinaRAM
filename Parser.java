@@ -155,7 +155,6 @@ public class Parser {
   }
 
   public BasicOperand parseOperand(String value) {
-    System.out.println(value);
     if (isInmediate(value)) {
       return new InmediateOperand(Integer.parseInt(value.substring(1)));
     } else if (isIndirect(value)) {

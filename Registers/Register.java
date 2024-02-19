@@ -1,4 +1,5 @@
 package Registers;
+import java.util.ArrayList;
 
 public interface Register {
   public default Integer getValue() {
@@ -11,5 +12,8 @@ public interface Register {
   public void print();
   public default Boolean isArray() {
     return false;
+  }
+  public default ArrayList<Integer> getValues() {
+    throw new UnsupportedOperationException();
   }
 }

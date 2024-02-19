@@ -12,6 +12,9 @@ public class ArrayIntegerRegister implements Register {
   public void setValue(int value) {
     values.add(value);
   }
+  public void setIndexValue(int index, int value) {
+    values.set(index, value);
+  }
   public void print() {
     System.out.print("[");
     for (int i = 0; i < values.size(); i++) {
@@ -24,6 +27,9 @@ public class ArrayIntegerRegister implements Register {
   }
   public Integer getValue(Integer address) {
     return values.get(address);
+  }
+  public ArrayList<Integer> getValues() {
+    return values;
   }
   public Boolean isArray() {
     return true;

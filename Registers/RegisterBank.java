@@ -1,5 +1,6 @@
 package Registers;
 import java.util.HashMap;
+import java.util.ArrayList;
 
 public class RegisterBank {
   public RegisterBank() {
@@ -17,6 +18,15 @@ public class RegisterBank {
     } else {
       return memory.get(address).getValue(index);
     }
+  }
+
+  public void putArrayValue(Integer address, Integer value) {
+    // Obtener el array
+    ArrayList<Integer> array = memory.get(1).getValues();
+    // Modificar el array
+    array.set(address, value);
+    // Poner en el registro 1 el array modificado
+    memory.put(1, new ArrayIntegerRegister(array));
   }
 
   public void putRegister(int address, Register register) {
