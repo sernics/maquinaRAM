@@ -1,7 +1,7 @@
 package Registers;
 
 public interface Register {
-  public default int getValue() {
+  public default Integer getValue() {
     throw new UnsupportedOperationException();
   }
   public default Integer getValue(Integer address) {

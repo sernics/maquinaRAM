@@ -11,7 +11,7 @@ public class RegisterBank {
     return memory.get(address);
   }
 
-  public int getRegisterValue(int address) {
+  public Integer getRegisterValue(int address) {
     return memory.get(address).getValue();
   }
 

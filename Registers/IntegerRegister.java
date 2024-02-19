@@ -7,7 +7,7 @@ public class IntegerRegister implements Register {
   public IntegerRegister(int value) {
     this.value = value;
   }
-  public int getValue() {
+  public Integer getValue() {
     return value;
   }
   public void setValue(int value) {
