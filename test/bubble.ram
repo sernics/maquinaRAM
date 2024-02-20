@@ -17,19 +17,43 @@ carga_j:        # for (int j = n - 1; j > 1; j--)
                 SUB =1
                 STORE 3
 
-for_j:          WRITE 3
-                LOAD 3
+                # Comprobación j
+for_j:          LOAD 3
                 SUB 2
-                SUB =1
                 JZERO fin_for_j
 
+                # if (A[j - 1] > A[j])
+                LOAD 3
+                SUB =1
+                STORE 6
+                LOAD R1[*3]
+                STORE 7
+                LOAD R1[*6]
+                SUB 7
+                JGTZ check
+                JUMP end_check
+
+check:          # int temp = A[j - 1]
+                LOAD R1[*6]
+                STORE 5
+
+                # A[j - 1] = A[j]
+                LOAD R1[*3]
+                STORE R1[*6]
+
+                # A[j] = temp
+                LOAD 5
+                STORE R1[*3]
+
+end_check:
                 # j = j - 1
                 LOAD 3
                 SUB =1
                 STORE 3
                 JUMP for_j
 
-fin_for_j:      # i = i + 1
+fin_for_j:      
+                # i = i + 1
                 LOAD 2
                 ADD =1
                 STORE 2
