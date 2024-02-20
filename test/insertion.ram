@@ -2,7 +2,8 @@
 LOAD =1
 STORE 2
 # Cargamos tamaño de n
-LOAD =11
+LOAD =10
+ADD =1
 STORE 4
 
             # Cargamos n - 1
@@ -11,7 +12,6 @@ for:        LOAD 4
             # ((n - 1) - j) == 0 -> jump end_for
             SUB 2
             JZERO end_for
-            WRITE 2
 
             # key = A[j]
             LOAD R1[*2]
@@ -24,20 +24,32 @@ for:        LOAD 4
 
             # i >= 0
 while:      LOAD 3
-            WRITE 3
-            SUB =0
-            JZERO continue
+            JZERO second
+            JGTZ second
+            JUMP end_while
+          
+second:     # A[i] > key
+            LOAD R1[*3]
+            SUB 5
             JGTZ continue
             JUMP end_while
 
-continue:   LOAD 3
-            JZERO end_while
+continue:   # A[i + 1] = A[i]
+            LOAD 3
+            ADD =1
+            STORE 6
+            LOAD R1[*3]
+            STORE R1[*6]
 
             # i = i - 1
             LOAD 3
             SUB =1
             STORE 3
             JUMP while
+
+            # Para que retorne después de evaluar el 0 si fuese necesario
+            LOAD 3
+            JZERO end_while
             
             # A[i + 1] = key
 end_while:  LOAD 3
