@@ -121,6 +121,15 @@ public class Parser {
         case "halt":
           instruction = new HaltInstruction();
           break;
+        case "exp":
+          i++;
+          if (isOperand(tokens.get(i))) {
+            operand = parseOperand(tokens.get(i));
+            instruction = new ExponenInstruction(registerBank, operand);
+          } else {
+            throw new RuntimeException("Invalid operand");
+          }
+          break;
         default:
           break;
       }
