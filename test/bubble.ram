@@ -2,7 +2,7 @@
 LOAD =0
 STORE 2
 # Cargamos n
-LOAD =10
+LOAD =20
 STORE 4
 
 for_i:          # for (int i = 0; i < n - 1; i++)                

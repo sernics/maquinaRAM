@@ -2,7 +2,7 @@
 LOAD =1
 STORE 2
 # Cargamos tamaño de n
-LOAD =10
+LOAD =10000
 ADD =1
 STORE 4
 
