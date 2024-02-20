@@ -1,11 +1,12 @@
 # Cargamos j y n
-LOAD =3
+LOAD =1
 STORE 2
 LOAD =9
 STORE 4
             # if n - j = 0 -> fin_for
 for:        LOAD 4
             SUB 2
+            SUB =1
             JZERO end_for
 
             # key = A[j]
@@ -17,19 +18,19 @@ for:        LOAD 4
             SUB =1
             STORE 3
 
-            # Comprobamos que i sea > 1
+            # Comprobamos que i sea > 0
 while:      LOAD 3
-            SUB =2
             JZERO end_while
 
-            # Comprobamos que A[i] > key
+            # Si A[i] < key -> continue : end_while
             LOAD R1[*3]
             STORE 6
             LOAD 5
             SUB 6
-            JGTZ end_while
+            JGTZ continue
+            JUMP end_while
 
-            # A[i + 1] = A[i]
+continue:   # A[i + 1] = A[i]
             LOAD 3
             ADD =1
             STORE 6
