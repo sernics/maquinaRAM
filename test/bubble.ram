@@ -2,59 +2,38 @@
 LOAD =0
 STORE 2
 # Cargamos n
-LOAD =9
+LOAD =10
 STORE 4
-          # Si (n - 1) - i == 0 -> fin for
-for_i:    LOAD 4
-          SUB =1
-          SUB 2
-          JZERO end
 
-                  # Guardamos en j = n
-                  LOAD 4
-                  STORE 3
-                  # Guardamos en R6 -> i + 1
-                  LOAD 2
-                  ADD =1
-                  STORE 6
-        
-          for_j:  LOAD 3
-                  SUB 6
-                  JZERO end_j
+for_i:          # for (int i = 0; i < n - 1; i++)                
+                LOAD 4
+                SUB =1
+                SUB 2
+                JGTZ carga_j
+                JUMP fin
 
-                  # Si A[j - 1] > A[i] -> (A[i] - A[j - 1]) > 0 -> saltar end_if
-                  LOAD 3
-                  SUB =1
-                  STORE 7
-                  LOAD R1[*7]
-                  STORE 7
-                  LOAD R1[*2]
-                  SUB 7
-                  JGTZ end_if
+carga_j:        # for (int j = n - 1; j > 1; j--)
+                LOAD 4
+                SUB =1
+                STORE 3
 
-                  # temp = A[j - 1]
-                  LOAD 3
-                  SUB =1
-                  STORE 7
-                  LOAD R1[*7]
-                  STORE 5
-                  
-                  # A[j - 1] = A[j]
-                  LOAD R1[*3]
-                  STORE R1[*7]
+for_j:          WRITE 3
+                LOAD 3
+                SUB 2
+                SUB =1
+                JZERO fin_for_j
 
-                  # A[j] = temp
-                  LOAD 5
-                  STORE R1[*3]
+                # j = j - 1
+                LOAD 3
+                SUB =1
+                STORE 3
+                JUMP for_j
 
-          end_if: LOAD 3
-                  SUB =1
-                  STORE 3
-                  JUMP for_j
+fin_for_j:      # i = i + 1
+                LOAD 2
+                ADD =1
+                STORE 2
 
-end_j:    LOAD 2
-          ADD =1
-          STORE 2
-          JUMP for_i
-          
-end:        HALT
+                JUMP for_i
+
+fin:    HALT

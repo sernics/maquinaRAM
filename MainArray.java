@@ -7,7 +7,7 @@ public class MainArray {
       // Generar 10 números aleatorios
       aleatoryNumbers.add((int) (Math.random() * 100) + 1);
     }
-    RamMachine ramMachine = new RamMachine("test/insertion.ram", "inputs/input.txt", "outputs/output.txt");
+    RamMachine ramMachine = new RamMachine("test/bubble.ram", "inputs/input.txt", "outputs/output.txt");
     ramMachine.setArray(aleatoryNumbers);
     ramMachine.run(2);
   }

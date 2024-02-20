@@ -12,8 +12,8 @@
 
 void bubble_sort(int A[], int n) {
   for (int i = 0; i < n - 1; i++) {
-    std::cout << "i: " << i << std::endl;
     for (int j = n - 1; j > i; j--) {
+      std::cout << " j: " << j << std::endl;
       if (A[j - 1] > A[j]) {
         int temp = A[j - 1];
         A[j - 1] = A[j];
