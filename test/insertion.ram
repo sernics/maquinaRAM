@@ -1,10 +1,13 @@
 # Cargamos j y n
 LOAD =2
 STORE 2
-LOAD =10
+LOAD =9
 STORE 4
             # if n - j = 0 -> fin_for
-for:        
+for:        LOAD 4
+            SUB 2
+            JZERO end_for
+
             # key = A[j]
             load R1[*2]
             STORE 5
@@ -33,6 +36,12 @@ end_while:  LOAD 3
             STORE 6
             LOAD 5
             STORE R1[*6]
+
+            # j = j + 1
+            LOAD 2
+            ADD =1
+            STORE 2
+            JUMP for
 
 
 end_for:    HALT
