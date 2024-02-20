@@ -9,7 +9,6 @@ public class StoreInstruction implements Instruction {
   }
   public void operate () {
     if (operand.isArray()) {
-      System.out.println("Es un array");
       registerBank.putArrayValue(operand.getArrayIndex(registerBank), registerBank.getRegister(0).getValue());
     } else {
       registerBank.putRegister(operand.getAddress(registerBank), registerBank.getRegister(0));
