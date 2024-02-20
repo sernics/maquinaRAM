@@ -125,7 +125,7 @@ public class Parser {
           i++;
           if (isOperand(tokens.get(i))) {
             operand = parseOperand(tokens.get(i));
-            instruction = new ExponenInstruction(registerBank, operand);
+            instruction = new ExponentInstruction(registerBank, operand);
           } else {
             throw new RuntimeException("Invalid operand");
           }

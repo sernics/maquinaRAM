@@ -4,8 +4,8 @@ import Operands.BasicOperand;
 import Registers.IntegerRegister;
 import Registers.RegisterBank;
 
-public class ExponenInstruction implements Instruction {
-  public ExponenInstruction(RegisterBank registerBank, BasicOperand operand) {
+public class ExponentInstruction implements Instruction {
+  public ExponentInstruction(RegisterBank registerBank, BasicOperand operand) {
     this.registerBank = registerBank;
     this.operand = operand;
   }
