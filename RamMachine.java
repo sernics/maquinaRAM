@@ -27,6 +27,7 @@ public class RamMachine extends ControlUnit {
 
   private void debugg(Integer debugMode) {
     if (debugMode == 2) {
+      System.out.println("PC: " + getProgramHead());
       System.out.println(getActualInstruction().toString());
       getRegisterBank().print();
       System.out.print("La cinta de entrada: ");
