@@ -9,6 +9,6 @@ public class MainArray {
     }
     RamMachine ramMachine = new RamMachine("test/insertion.ram", "inputs/input.txt", "outputs/output.txt");
     ramMachine.setArray(aleatoryNumbers);
-    ramMachine.run(1);
+    ramMachine.run(2);
   }
 }
