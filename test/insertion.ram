@@ -1,16 +1,20 @@
-# Cargamos j y n
+# Cargamos j
 LOAD =1
 STORE 2
-LOAD =9
+# Cargamos tamaño de n
+LOAD =11
 STORE 4
-            # if n - j = 0 -> fin_for
+
+            # Cargamos n - 1
 for:        LOAD 4
-            SUB 2
             SUB =1
+            # ((n - 1) - j) == 0 -> jump end_for
+            SUB 2
             JZERO end_for
+            WRITE 2
 
             # key = A[j]
-            load R1[*2]
+            LOAD R1[*2]
             STORE 5
             
             # i = j - 1
@@ -18,30 +22,23 @@ for:        LOAD 4
             SUB =1
             STORE 3
 
-            # Comprobamos que i sea > 0
+            # i >= 0
 while:      LOAD 3
-            JZERO end_while
-
-            # Si A[i] < key -> continue : end_while
-            LOAD R1[*3]
-            STORE 6
-            LOAD 5
-            SUB 6
+            WRITE 3
+            SUB =0
+            JZERO continue
             JGTZ continue
             JUMP end_while
 
-continue:   # A[i + 1] = A[i]
-            LOAD 3
-            ADD =1
-            STORE 6
-            LOAD R1[*3]
-            STORE R1[*6]
+continue:   LOAD 3
+            JZERO end_while
 
             # i = i - 1
-            LOAD 3 
+            LOAD 3
             SUB =1
             STORE 3
-
+            JUMP while
+            
             # A[i + 1] = key
 end_while:  LOAD 3
             ADD =1
